@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './PaginaCentral.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { useNavigate } from 'react-router-dom';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -20,29 +21,36 @@ import capaLucas2 from '../../assets/imgLucas2/Capa.png';
 import capaNathan from '../../assets/imgNathan/Capa.jpg';
 import capaGabriel from '../../assets/imgGabriel/Capa.jpg';
 import capaLucas from '../../assets/imgLucas/Capa.jpg';
-import capaJoaoVitor from '../../assets/imgJoaoVitor/Capa.jpg'
-import capaVinicius from '../../assets/imgVinicius/Capa.jpg'
+import capaJoaoVitor from '../../assets/imgJoaoVitor/Capa.jpg';
+import capaVinicius from '../../assets/imgVinicius/Capa.jpg';
 
 const PaginaCentral = () => {
+  const navigate = useNavigate();
+  
   const cards = [
-    { name: "Eduardo", image: capaEduardo },
-    { name: "Gustavo", image: capaImgGustavo },
-    { name: "Murilo", image: capaImgMurilo },
-    { name: "João Vitor", image: capaJoaoVitor },
-    { name: "Luiz Felipe", image: capaLuizFelipe },
-    { name: "Gabriel", image: capaGabriel },
-    { name: "Matheus", image: capaImgMatheus },
-    { name: "Wallison", image: capaWallison },
-    { name: "Kelvi", image: capaKelvi },
-    { name: "Luiz Henrique", image: capaImgLuizHenrique },
-    { name: "Lucas", image: capaLucas },
-    { name: "Arthur", image: capaArthur },
-    { name: "Elias", image: capaImgElias },
-    { name: "Lucas2", image: capaLucas2 },
-    { name: "Nathan", image: capaNathan },
-    { name: "Jorge Vitor", image: capaImgJorgeVitor },
-    { name: "Vinicius", image: capaVinicius }
+    { name: "Eduardo", image: capaEduardo, id:"eduardo"},
+    { name: "Gustavo", image: capaImgGustavo, id: "gustavo"},
+    { name: "Murilo", image: capaImgMurilo, id: "murilo" },
+    { name: "João Vitor", image: capaJoaoVitor, id: "joaovitor" },
+    { name: "Luiz Felipe", image: capaLuizFelipe, id: "luizfelipe" },
+    { name: "Gabriel", image: capaGabriel, id: "gabriel" },
+    { name: "Matheus", image: capaImgMatheus, id: "matheus" },
+    { name: "Wallison", image: capaWallison, id: "wallison" },
+    { name: "Kelvi", image: capaKelvi, id: "kelvi" },
+    { name: "Luiz Henrique", image: capaImgLuizHenrique, id: "luizhenrique" },
+    { name: "Lucas", image: capaLucas, id: "lucas" },
+    { name: "Arthur", image: capaArthur, id: "arthur" },
+    { name: "Elias", image: capaImgElias, id: "elias" },
+    { name: "Lucas2", image: capaLucas2, id: "lucas2" },
+    { name: "Nathan", image: capaNathan, id: "nathan" },
+    { name: "Jorge Vitor", image: capaImgJorgeVitor, id: "jorgevitor" },
+    { name: "Vinicius", image: capaVinicius, id: "vinicius" }
   ]
+
+  const handleCardClick = (id: string) => {
+    navigate(`/galeria/${id}`);
+  };
+
   return (
     <main className={styles.pagina}>
       <section className={styles.newsSection}>
@@ -96,7 +104,8 @@ const PaginaCentral = () => {
         >
           {cards.map((card, index) => (
             <SwiperSlide key={index}>
-              <div className={styles.imageCard}>
+              <div className={styles.imageCard}
+              onClick={() => handleCardClick(card.id)}>
                 <img src={card.image} alt={card.name} className={styles.cardImage} />
                 <p className={styles.cardName}>{card.name}</p>
               </div>

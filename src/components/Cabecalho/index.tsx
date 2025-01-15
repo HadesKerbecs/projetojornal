@@ -9,8 +9,7 @@ const Cabecalho = () => {
           src={LogoTJF}
           alt="Logo da empresa" 
         />
-      <h1 className={styles.titulo}>JORNAL TROPA DO JUIZO FINAL
-      </h1>
+      <h1 className={styles.titulo}>JORNAL TROPA DO JUIZO FINAL</h1>
     </header>
   );
 };

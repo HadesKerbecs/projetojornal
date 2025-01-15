@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './MainGaleria.module.scss';
 
+
 const MainGaleria = () => {
   return (
     <div className={styles.MainGaleria}>

@@ -3,29 +3,43 @@ import Cabecalho from '../components/Cabecalho';
 import PaginaCentral from '../components/PaginaCentral';
 import Fotos from '../components/Fotos';
 import Rodape from '../components/Rodape';
-import VisualizarFotos from '../components/VisualizarFotos';
 import Jornal from '../components/Jornal';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Galeria from '../components/Galeria';
+import {BrowserRouter as Router, Route, Routes, useLocation} from 'react-router-dom';
 
-function App() {
+const AppContent = () => {
+  const location = useLocation();
+
+  const RotasSemCabecalho = ['/galeria/:galleryId', '/journal/:journalId'];
+
+  const RotasComCabecalho = () => {
+    return !RotasSemCabecalho.some((rota) => {
+      const rotaRegex = new RegExp(`^${rota.replace(/:\w+/g, '\\w+')}$`);
+      return rotaRegex.test(location.pathname);
+    });
+  };
+
   return (
     <div>
-      <Cabecalho />
-      <PaginaCentral />
-      <Router>
-        <Routes>
-          <Route path="/photo-view" element={<VisualizarFotos />} />
-        </Routes>
-      </Router>
+      {/* Renderiza o cabeçalho padrão apenas se a rota permitir */}
+      {RotasComCabecalho() && <Cabecalho />}
+      <Routes>
+        <Route path="/" element={<PaginaCentral />} />
+        <Route path="/galeria/:galleryId" element={<Galeria />} />
+        <Route path="/journal/:journalId" element={<Jornal />} />
+      </Routes>
       <Fotos />
       <Rodape />
-      <Router>
-        <Routes>
-          <Route path="/journal/:journalId" element={<Jornal />} />
-        </Routes>
-      </Router>
     </div>
   );
-}
+};
+
+const App = () => {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
+};
 
 export default App;
