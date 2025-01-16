@@ -9,7 +9,7 @@ import {BrowserRouter as Router, Route, Routes, useLocation} from 'react-router-
 const AppContent = () => {
   const location = useLocation();
 
-  const RotasSemCabecalho = ['/galeria/:galleryId', '/journal/:journalId'];
+  const RotasSemCabecalho = ['/galeria/:galleryId', '/jornal/:jornalId'];
 
   const RotasComCabecalho = () => {
     return !RotasSemCabecalho.some((rota) => {
@@ -25,8 +25,7 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<PaginaCentral />} />
         <Route path="/galeria/:galleryId" element={<Galeria />} />
-        <Route path="/journal/:journalId" element={<Jornal />} />
-
+        <Route path="/jornal/:jornalId" element={<Jornal />} />
       </Routes>
       <Rodape />
     </div>

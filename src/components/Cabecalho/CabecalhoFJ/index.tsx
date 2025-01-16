@@ -16,8 +16,10 @@ const CabecalhoFJ = () => {
                 src={LogoTJF}
                 alt="Logo da empresa" 
             />
-            <h1>FOTOS</h1>
-            <p>Aqui temos as fotos do pessoal da Tropa do Juízo Final</p>
+            <div className='text-container'>
+                <h1>FOTOS</h1>
+                <p>Aqui temos as fotos do pessoal da Tropa do Juízo Final</p>
+            </div>
             <h2 onClick={voltarPagina}>VOLTAR</h2>
             </header>
         </div>

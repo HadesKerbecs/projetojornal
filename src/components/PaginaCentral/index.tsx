@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './PaginaCentral.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useNavigate } from 'react-router-dom';
@@ -7,29 +7,47 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Fotos from '../../components/Fotos';
-import capaImgGustavo from '../../assets/imgGustavo/Capa.jpg';
-import capaImgMurilo from '../../assets/imgMurilo/Capa.jpg';
-import capaImgLuizHenrique from '../../assets/imgLuizHenrique/Capa.jpg';
-import capaImgMatheus from '../../assets/imgMatheus/Capa.jpg';
-import capaImgJorgeVitor from '../../assets/imgJorgeVitor/Capa.jpg';
-import capaImgElias from '../../assets/imgElias/Capa.jpg';
-import capaWallison from '../../assets/imgWallison/Capa.jpg';
-import capaLuizFelipe from '../../assets/imgLuizFelipe/Capa.png';
-import capaEduardo from '../../assets/imgEduardo/Capa.png';
-import capaKelvi from '../../assets/imgKelvi/Capa.png';
-import capaArthur from '../../assets/imgArthur/Capa.jpg';
-import capaLucas2 from '../../assets/imgLucas2/Capa.png';
-import capaNathan from '../../assets/imgNathan/Capa.jpg';
-import capaGabriel from '../../assets/imgGabriel/Capa.jpg';
-import capaLucas from '../../assets/imgLucas/Capa.jpg';
-import capaJoaoVitor from '../../assets/imgJoaoVitor/Capa.jpg';
-import capaVinicius from '../../assets/imgVinicius/Capa.jpg';
-
-
+import capaImgGustavo from '../../assets/CapaMembros/imgGustavo/Capa.jpg';
+import capaImgMurilo from '../../assets/CapaMembros/imgMurilo/Capa.jpg';
+import capaImgLuizHenrique from '../../assets/CapaMembros/imgLuizHenrique/Capa.jpg';
+import capaImgMatheus from '../../assets/CapaMembros/imgMatheus/Capa.jpg';
+import capaImgJorgeVitor from '../../assets/CapaMembros/imgJorgeVitor/Capa.jpg';
+import capaImgElias from '../../assets/CapaMembros/imgElias/Capa.jpg';
+import capaWallison from '../../assets/CapaMembros/imgWallison/Capa.jpg';
+import capaLuizFelipe from '../../assets/CapaMembros/imgLuizFelipe/Capa.png';
+import capaEduardo from '../../assets/CapaMembros/imgEduardo/Capa.png';
+import capaKelvi from '../../assets/CapaMembros/imgKelvi/Capa.png';
+import capaArthur from '../../assets/CapaMembros/imgArthur/Capa.jpg';
+import capaLucas2 from '../../assets/CapaMembros/imgLucas2/Capa.png';
+import capaNathan from '../../assets/CapaMembros/imgNathan/Capa.jpg';
+import capaGabriel from '../../assets/CapaMembros/imgGabriel/Capa.jpg';
+import capaLucas from '../../assets/CapaMembros/imgLucas/Capa.jpg';
+import capaJoaoVitor from '../../assets/CapaMembros/imgJoaoVitor/Capa.jpg';
+import capaVinicius from '../../assets/CapaMembros/imgVinicius/Capa.jpg';
 
 const PaginaCentral = () => {
   const navigate = useNavigate();
-  
+
+  const [galleries, setGalleries] = useState<{ [key: string]: string[] }>({
+    gustavo: [],
+    joaovitor: [],
+    eduardo: [],
+    murilo: [],
+    luizfelipe: [],
+    gabriel: [],
+    matheus: [],
+    wallison: [],
+    kelvi: [],
+    luizhenrique: [],
+    lucas: [],
+    lucas2: [],
+    arthur: [],
+    elias: [],
+    nathan: [],
+    jorgevitor: [],
+    vinicius: []
+  });
+
   const cards = [
     { name: "Eduardo", image: capaEduardo, id:"eduardo"},
     { name: "Gustavo", image: capaImgGustavo, id: "gustavo"},
@@ -50,9 +68,27 @@ const PaginaCentral = () => {
     { name: "Vinicius", image: capaVinicius, id: "vinicius" }
   ]
 
-  const handleCardClick = (id: string) => {
+  const handleAddPhoto = (id: string, photo: string) => {
+    setGalleries((prev) => ({
+      ...prev,
+      [id]: [...(prev[id] || []), photo], // Adiciona a foto ao ID correspondente
+    }));
+  };
+
+  const cardsjornais = [
+    { name: "Outubro 2021", id:"outubro2021"},
+    { name: "Abril 2022", id:"abril2022"},
+    { name: "Novembro 2022", id:"novembro2022"},
+    { name: "Agosto 2024", id:"agosto2024"},
+  ]
+
+  const EntrarGaleriaId = (id: string) => {
     navigate(`/galeria/${id}`);
   };
+
+  const EntrarJornalId = (id: string, name: string) => {
+    navigate(`/jornal/${id}`, { state:{name}});
+  }
 
   return (
     <main className={styles.pagina}>
@@ -108,7 +144,7 @@ const PaginaCentral = () => {
           {cards.map((card, index) => (
             <SwiperSlide key={index}>
               <div className={styles.imageCard}
-              onClick={() => handleCardClick(card.id)}>
+              onClick={() => EntrarGaleriaId(card.id)}>
                 <img src={card.image} alt={card.name} className={styles.cardImage} />
                 <p className={styles.cardName}>{card.name}</p>
               </div>
@@ -118,12 +154,17 @@ const PaginaCentral = () => {
       </section>
 
       <section className={styles.monthlyJournals}>
-        <h2>Jornais Mensais (ou não)</h2>        
-        <div className={styles.journalGrid}>
-          <div className={styles.journalCard}>Outubro 2021</div>
-          <div className={styles.journalCard}>Abril 2022</div>
-          <div className={styles.journalCard}>Novembro 2022</div>
-          <div className={styles.journalCard}>Agosto 2024</div>
+        <h2>Jornais Mensais (ou não)</h2>
+        <div className={styles.journalGrid}> 
+        {cardsjornais.map((cards, index) => (
+          <div
+          key= {index}
+          className={styles.journalCard}
+          onClick={() => EntrarJornalId(cards.id, cards.name)}
+            >
+          {cards.name}
+          </div>
+        ))}        
         </div>
       </section>
       <Fotos />

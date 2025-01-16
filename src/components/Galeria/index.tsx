@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import styles from './Galeria.module.scss';
 import Cabecalho2 from '../../components/Cabecalho/CabecalhoFJ';
-import capaImgGustavo from '../../assets/imgGustavo/Capa.jpg';
+import capaImgGustavo from '../../assets/CapaMembros/imgGustavo/Capa.jpg';
 
 interface GaleriaInterface {
   [key: string]: string[];
