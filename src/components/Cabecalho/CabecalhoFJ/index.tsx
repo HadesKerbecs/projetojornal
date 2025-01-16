@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './CabecalhoFJ.module.scss';
 import { useNavigate } from 'react-router-dom';
+import LogoTJF from '../../../assets/logoTJF/LogoTJF.png';
 
 const CabecalhoFJ = () => {
     const navigate = useNavigate();
@@ -11,6 +12,10 @@ const CabecalhoFJ = () => {
     return (
         <div className={styles.fotoVisualizarContainer}>
         <header className={styles.header}>
+            <img 
+                src={LogoTJF}
+                alt="Logo da empresa" 
+            />
             <h1>FOTOS</h1>
             <p>Aqui temos as fotos do pessoal da Tropa do Juízo Final</p>
             <h2 onClick={voltarPagina}>VOLTAR</h2>

@@ -1,7 +1,6 @@
 import React from 'react';
 import Cabecalho from '../components/Cabecalho';
 import PaginaCentral from '../components/PaginaCentral';
-import Fotos from '../components/Fotos';
 import Rodape from '../components/Rodape';
 import Jornal from '../components/Jornal';
 import Galeria from '../components/Galeria';
@@ -27,8 +26,8 @@ const AppContent = () => {
         <Route path="/" element={<PaginaCentral />} />
         <Route path="/galeria/:galleryId" element={<Galeria />} />
         <Route path="/journal/:journalId" element={<Jornal />} />
+
       </Routes>
-      <Fotos />
       <Rodape />
     </div>
   );

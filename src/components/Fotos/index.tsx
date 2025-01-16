@@ -9,7 +9,7 @@ const Fotos = () => {
         <h2>Adicionar Fotos</h2>
         <p>
           Caso queira guardar fotos do pessoal, do grupo para termos guardados, 
-          clique na foto ao lado {'-->'}.
+          clique na foto ao lado {'->'}
         </p>
       </div>
       <div className={styles.fotoPlaceholder}>

@@ -6,6 +6,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import Fotos from '../../components/Fotos';
 import capaImgGustavo from '../../assets/imgGustavo/Capa.jpg';
 import capaImgMurilo from '../../assets/imgMurilo/Capa.jpg';
 import capaImgLuizHenrique from '../../assets/imgLuizHenrique/Capa.jpg';
@@ -23,6 +24,8 @@ import capaGabriel from '../../assets/imgGabriel/Capa.jpg';
 import capaLucas from '../../assets/imgLucas/Capa.jpg';
 import capaJoaoVitor from '../../assets/imgJoaoVitor/Capa.jpg';
 import capaVinicius from '../../assets/imgVinicius/Capa.jpg';
+
+
 
 const PaginaCentral = () => {
   const navigate = useNavigate();
@@ -58,7 +61,7 @@ const PaginaCentral = () => {
           <h2>Jornal dos Brothers!</h2>
           <p>
             EXTRA! EXTRA! Isso não é um acontecimento, é um evento! <br />
-            A seguir todos os acontecimentos mais relevantes ou não do grupo.
+            A seguir todos os acontecimentos mais relevantes ou não do grupo (e fotos).
           </p>
         </div>
         <Swiper
@@ -123,6 +126,7 @@ const PaginaCentral = () => {
           <div className={styles.journalCard}>Agosto 2024</div>
         </div>
       </section>
+      <Fotos />
     </main>
   );
 };

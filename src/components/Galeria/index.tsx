@@ -10,9 +10,8 @@ interface GaleriaInterface {
 const Galeria = () => {
   const { galleryId } = useParams<{ galleryId: string }>();
 
-  // Exemplo de dados para diferentes galerias
   const galleries: GaleriaInterface = {
-    gustavo: [capaImgGustavo, 'https://via.placeholder.com/150'], // Exemplo de URL adicional
+    gustavo: [capaImgGustavo, 'https://via.placeholder.com/150'],
     joaovitor: ['https://via.placeholder.com/200', 'https://via.placeholder.com/250'],
     eduardo: ['https://via.placeholder.com/300', 'https://via.placeholder.com/350'],
   };
