@@ -1,23 +1,17 @@
+import React from 'react';
 import { useParams } from 'react-router-dom';
+import { GaleriaInterface } from '../../pages/App';
 import styles from './Galeria.module.scss';
 import Cabecalho2 from '../../components/Cabecalho/CabecalhoFJ';
-import capaImgGustavo from '../../assets/CapaMembros/imgGustavo/Capa.jpg';
 
-interface GaleriaInterface {
-  [key: string]: string[];
+interface GaleriaProps {
+  galerias: GaleriaInterface; // Propriedade que contém as imagens organizadas por ID
 }
 
-const Galeria = () => {
-  const { galleryId } = useParams<{ galleryId: string }>();
-
-  const galleries: GaleriaInterface = {
-    gustavo: [capaImgGustavo, 'https://via.placeholder.com/150'],
-    joaovitor: ['https://via.placeholder.com/200', 'https://via.placeholder.com/250'],
-    eduardo: ['https://via.placeholder.com/300', 'https://via.placeholder.com/350'],
-  };
-
-  const images = galleryId ? galleries[galleryId] || [] : [];
-
+const Galeria: React.FC<GaleriaProps> = ({ galerias }) => {
+  const { galleryId } = useParams<{ galleryId: string }>(); // Captura o ID da URL
+  const images = galleryId ? galerias[galleryId] || [] : []; // Busca as imagens associadas ao ID
+  
   return (
     <div>
       <Cabecalho2 />
@@ -26,7 +20,7 @@ const Galeria = () => {
           <>
             <h1>Galeria de {galleryId.charAt(0).toUpperCase() + galleryId.slice(1)}</h1>
             <div className={styles.imageGrid}>
-              {images.map((image: string, index: number) => (
+              {images.map((image, index) => (
                 <div key={index} className={styles.imageCard}>
                   <img src={image} alt={`Imagem ${index + 1}`} />
                 </div>

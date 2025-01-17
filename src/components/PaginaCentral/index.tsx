@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './PaginaCentral.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useNavigate } from 'react-router-dom';
@@ -25,28 +25,12 @@ import capaLucas from '../../assets/CapaMembros/imgLucas/Capa.jpg';
 import capaJoaoVitor from '../../assets/CapaMembros/imgJoaoVitor/Capa.jpg';
 import capaVinicius from '../../assets/CapaMembros/imgVinicius/Capa.jpg';
 
-const PaginaCentral = () => {
-  const navigate = useNavigate();
+interface PaginaCentralProps {
+  onAddPhoto: (id: string, photo: string) => void;
+}
 
-  const [galleries, setGalleries] = useState<{ [key: string]: string[] }>({
-    gustavo: [],
-    joaovitor: [],
-    eduardo: [],
-    murilo: [],
-    luizfelipe: [],
-    gabriel: [],
-    matheus: [],
-    wallison: [],
-    kelvi: [],
-    luizhenrique: [],
-    lucas: [],
-    lucas2: [],
-    arthur: [],
-    elias: [],
-    nathan: [],
-    jorgevitor: [],
-    vinicius: []
-  });
+const PaginaCentral: React.FC<PaginaCentralProps> = ({ onAddPhoto }) => {
+  const navigate = useNavigate();
 
   const cards = [
     { name: "Eduardo", image: capaEduardo, id:"eduardo"},
@@ -67,13 +51,6 @@ const PaginaCentral = () => {
     { name: "Jorge Vitor", image: capaImgJorgeVitor, id: "jorgevitor" },
     { name: "Vinicius", image: capaVinicius, id: "vinicius" }
   ]
-
-  const handleAddPhoto = (id: string, photo: string) => {
-    setGalleries((prev) => ({
-      ...prev,
-      [id]: [...(prev[id] || []), photo], // Adiciona a foto ao ID correspondente
-    }));
-  };
 
   const cardsjornais = [
     { name: "Outubro 2021", id:"outubro2021"},
@@ -167,7 +144,7 @@ const PaginaCentral = () => {
         ))}        
         </div>
       </section>
-      <Fotos />
+      <Fotos onAddPhoto={onAddPhoto}/>
     </main>
   );
 };

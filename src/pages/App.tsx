@@ -1,13 +1,45 @@
-import React from 'react';
+import React, {useState } from 'react';
 import Cabecalho from '../components/Cabecalho';
 import PaginaCentral from '../components/PaginaCentral';
 import Rodape from '../components/Rodape';
 import Jornal from '../components/Jornal';
 import Galeria from '../components/Galeria';
+
 import {BrowserRouter as Router, Route, Routes, useLocation} from 'react-router-dom';
+
+export interface GaleriaInterface {
+  [key: string]: string[];
+}
 
 const AppContent = () => {
   const location = useLocation();
+
+  const [galerias, setGalerias] = useState<GaleriaInterface>({
+    gustavo: [],
+    joaovitor: [],
+    eduardo: [],
+    murilo: [],
+    luizfelipe: [],
+    gabriel: [],
+    matheus: [],
+    wallison: [],
+    kelvi: [],
+    luizhenrique: [],
+    lucas: [],
+    lucas2: [],
+    arthur: [],
+    elias: [],
+    nathan: [],
+    jorgevitor: [],
+    vinicius: []
+  });
+  
+  const handleAddPhoto = (id: string, photo: string) => {
+    setGalerias((prev) => ({
+      ...prev,
+      [id]: [...(prev[id] || []), photo],
+    }));
+  };
 
   const RotasSemCabecalho = ['/galeria/:galleryId', '/jornal/:jornalId'];
 
@@ -23,8 +55,8 @@ const AppContent = () => {
       {/* Renderiza o cabeçalho padrão apenas se a rota permitir */}
       {RotasComCabecalho() && <Cabecalho />}
       <Routes>
-        <Route path="/" element={<PaginaCentral />} />
-        <Route path="/galeria/:galleryId" element={<Galeria />} />
+        <Route path="/" element={<PaginaCentral onAddPhoto={handleAddPhoto} />} />
+        <Route path="/galeria/:galleryId" element={<Galeria  galerias={galerias}/>} />
         <Route path="/jornal/:jornalId" element={<Jornal />} />
       </Routes>
       <Rodape />
