@@ -1,11 +1,11 @@
-import React, {useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Cabecalho from '../components/Cabecalho';
 import PaginaCentral from '../components/PaginaCentral';
 import Rodape from '../components/Rodape';
 import Jornal from '../components/Jornal';
 import Galeria from '../components/Galeria';
-
-import {BrowserRouter as Router, Route, Routes, useLocation} from 'react-router-dom';
+import { initializeGoogleAPI } from "../googleDriveConfig";
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
 export interface GaleriaInterface {
   [key: string]: string[];
@@ -33,12 +33,24 @@ const AppContent = () => {
     jorgevitor: [],
     vinicius: []
   });
-  
+
+  useEffect(() => {
+    initializeGoogleAPI();
+  }, []);
+
   const handleAddPhoto = (id: string, photo: string) => {
     setGalerias((prev) => ({
       ...prev,
       [id]: [...(prev[id] || []), photo],
     }));
+  };
+
+  const handleRemovePhoto = (id: string) => {
+    setGalerias((prev) => {
+      const updatedGalerias = { ...prev };
+      updatedGalerias[id] = [];
+      return updatedGalerias;
+    });
   };
 
   const RotasSemCabecalho = ['/galeria/:galleryId', '/jornal/:jornalId'];
@@ -52,11 +64,10 @@ const AppContent = () => {
 
   return (
     <div>
-      {/* Renderiza o cabeçalho padrão apenas se a rota permitir */}
       {RotasComCabecalho() && <Cabecalho />}
       <Routes>
-        <Route path="/" element={<PaginaCentral onAddPhoto={handleAddPhoto} />} />
-        <Route path="/galeria/:galleryId" element={<Galeria  galerias={galerias}/>} />
+        <Route path="/" element={<PaginaCentral onAddPhoto={handleAddPhoto} onRemovePhoto={handleRemovePhoto} folderID="1kHwbljXKr5zV2Hf45RZ2JR-p6Wea-qEB"/>} />
+        <Route path="/galeria/:galleryId" element={<Galeria galerias={galerias} />} />
         <Route path="/jornal/:jornalId" element={<Jornal />} />
       </Routes>
       <Rodape />

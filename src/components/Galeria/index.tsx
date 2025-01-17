@@ -5,13 +5,13 @@ import styles from './Galeria.module.scss';
 import Cabecalho2 from '../../components/Cabecalho/CabecalhoFJ';
 
 interface GaleriaProps {
-  galerias: GaleriaInterface; // Propriedade que contém as imagens organizadas por ID
+  galerias: GaleriaInterface;
 }
 
 const Galeria: React.FC<GaleriaProps> = ({ galerias }) => {
-  const { galleryId } = useParams<{ galleryId: string }>(); // Captura o ID da URL
-  const images = galleryId ? galerias[galleryId] || [] : []; // Busca as imagens associadas ao ID
-  
+  const { galleryId } = useParams<{ galleryId: string }>();
+  const images = galleryId ? galerias[galleryId] || [] : [];
+
   return (
     <div>
       <Cabecalho2 />
