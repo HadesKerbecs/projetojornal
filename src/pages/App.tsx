@@ -35,8 +35,15 @@ const AppContent = () => {
   });
 
   useEffect(() => {
-    initializeGoogleAPI();
-  }, []);
+    const initializeAPI = async () => {
+      try {
+        await initializeGoogleAPI();
+      } catch (error) {
+        console.error("Erro durante a inicialização da API:", error);
+      }
+    };
+    initializeAPI();
+  }, []);  
 
   const handleAddPhoto = (id: string, photo: string) => {
     setGalerias((prev) => ({
