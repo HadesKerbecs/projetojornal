@@ -1,8 +1,8 @@
 import { gapi } from "gapi-script";
 
-const CLIENT_ID = "";
-const API_KEY = "";
-const SCOPES = "";
+const CLIENT_ID = ""; // Do arquivo credentials.json
+const API_KEY = ""; // Gerada no Google Cloud Console
+const SCOPES = ""; // Permissão para gerenciar arquivos criados pelo app
 const DISCOVERY_DOCS = [""];
 
 export const initializeGoogleAPI = () => {

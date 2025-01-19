@@ -2,6 +2,7 @@
   "name": "projetojornal",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://hadeskerbecs.github.io/projetojornal",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -27,7 +28,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "proxy": "https://www.googleapis.com"
+    "proxy": "https://www.googleapis.com",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +54,7 @@
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
     "@types/webpack-env": "^1.18.5",
+    "gh-pages": "^6.3.0",
     "sass": "^1.83.4",
     "sass-loader": "^16.0.4"
   }
