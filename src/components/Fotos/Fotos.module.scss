@@ -60,6 +60,25 @@
         padding: 5px;
       }
     }
+
+    .authButton {
+      flex: 0 0 auto;
+      padding: 6px;
+      font-size: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #f9f9f9;
+      color: #333;
+  
+      @media (max-width: 768px) {
+        font-size: 0.8rem;
+        padding: 6px;
+      }
+      @media (max-width: 480px) {
+        font-size: 0.6rem;
+        padding: 5px;
+      }
+    }
   }
 
 

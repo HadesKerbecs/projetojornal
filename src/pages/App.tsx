@@ -5,7 +5,7 @@ import Rodape from '../components/Rodape';
 import Jornal from '../components/Jornal';
 import Galeria from '../components/Galeria';
 import { initializeGoogleAPI } from "../googleDriveConfig";
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation, BrowserRouter } from 'react-router-dom';
 
 export interface GaleriaInterface {
   [key: string]: string[];
@@ -84,9 +84,9 @@ const AppContent = () => {
 
 const App = () => {
   return (
-    <Router>
+    <BrowserRouter basename='/projetojornal'>
       <AppContent />
-    </Router>
+    </BrowserRouter>
   );
 };
 

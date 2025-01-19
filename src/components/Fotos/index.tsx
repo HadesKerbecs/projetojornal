@@ -38,31 +38,37 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto, folderID }) => {
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-
-    if (!selectedId) {
-      alert("Selecione um ID antes de adicionar uma foto.");
-      return;
-    }
-
-    try {
-      const authInstance = gapi.auth2.getAuthInstance();
-      if (!authInstance.isSignedIn.get()) {
-        alert("Por favor, autentique-se antes de enviar fotos.");
-        await authInstance.signIn();
-      }
-
-      const photoURL = await uploadFileToDrive(file, folderID);
-      onAddPhoto(selectedId, photoURL);
-      alert("Foto enviada com sucesso!");
-    } catch (error: any) {
-      if (error.error === "popup_blocked_by_browser") {
-        alert("Erro: O navegador bloqueou o popup de autenticação. Por favor, permita popups para este site.");
-      } else {
+  
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = async () => {
+      try {
+        const fileContent = reader.result?.toString().split(",")[1];
+  
+        const response = await fetch("https://projetojornal.onrender.com/upload", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: file.name,
+            mimeType: file.type,
+            folderId: "folderId",
+            fileContent,
+          }),
+        });
+  
+        const data = await response.json();
+        if (data.success) {
+          alert("Foto enviada com sucesso!");
+        } else {
+          throw new Error(data.error);
+        }
+      } catch (error) {
         console.error("Erro ao enviar foto:", error);
-        alert("Erro ao enviar foto. Verifique sua autenticação.");
+        alert("Erro ao enviar foto.");
       }
-    }
+    };
   };
+  
 
   return (
     <section className={styles.selecaoFoto}>
