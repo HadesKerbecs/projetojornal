@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { GaleriaInterface } from '../../pages/App';
 import styles from './Galeria.module.scss';
 import Cabecalho2 from '../../components/Cabecalho/CabecalhoFJ';
+import axios from 'axios';
 
 interface GaleriaProps {
   galerias: GaleriaInterface;
@@ -10,7 +11,26 @@ interface GaleriaProps {
 
 const Galeria: React.FC<GaleriaProps> = ({ galerias }) => {
   const { galleryId } = useParams<{ galleryId: string }>();
-  const images = galleryId ? galerias[galleryId] || [] : [];
+  const [images, setImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await axios.get(
+          `https://res.cloudinary.com/dcrj3oqcw/image/list/${galleryId}.json`
+        );
+        const imageUrls = response.data.resources.map((img: any) => img.secure_url);
+        setImages(imageUrls);
+      } catch (error) {
+        console.error('Erro ao buscar imagens:', error);
+      }
+    };
+  
+    if (galleryId) {
+      fetchImages();
+    }
+  }, [galleryId]);
+  
 
   return (
     <div>
