@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HashRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation, BrowserRouter } from 'react-router-dom';
 import Cabecalho from '../components/Cabecalho';
 import PaginaCentral from '../components/PaginaCentral';
 import Rodape from '../components/Rodape';
@@ -51,9 +51,9 @@ const AppContent = () => {
 
 const App = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <AppContent />
-    </Router>
+    </BrowserRouter>
   );
 };
 
