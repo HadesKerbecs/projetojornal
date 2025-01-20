@@ -66,14 +66,17 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto, folderID }) => {
       try {
         const fileContent = reader.result?.toString().split(",")[1];
   
-        const response = await fetch("https://projetojornal.onrender.com/upload", {
+        const token = gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token;
+  
+        const response = await fetch("https://seu-backend.render.com/upload", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             name: file.name,
             mimeType: file.type,
-            folderId: "folderId",
+            folderId: folderID,
             fileContent,
+            token,
           }),
         });
   
@@ -88,9 +91,8 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto, folderID }) => {
         alert("Erro ao enviar foto.");
       }
     };
-  };
+  };  
   
-
   return (
     <section className={styles.selecaoFoto}>
       <div className={styles.textContainer}>

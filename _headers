@@ -1,5 +1,5 @@
 /*
-  Access-Control-Allow-Origin: https://678e6823ca4f24000851ad9c--resplendent-sopapillas-0fdfa9.netlify.app
+  Access-Control-Allow-Origin: *
   Access-Control-Allow-Methods: GET, POST, OPTIONS
   Access-Control-Allow-Headers: Content-Type, Authorization
   Content-Security-Policy: default-src 'self'; 
