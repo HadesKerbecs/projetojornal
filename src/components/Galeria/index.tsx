@@ -17,12 +17,7 @@ const Galeria: React.FC<GaleriaProps> = ({ galerias }) => {
     const fetchImages = async () => {
       try {
         const response = await axios.get(
-          `https://api.cloudinary.com/v1_1/dcrj3oqcw/resources/image/tags/${galleryId}`, // Busca imagens pelo ID como tag
-          {
-            params: {
-              folder: 'ProjetoJornal', // Limita a busca à pasta
-            },
-          }
+          `https://res.cloudinary.com/dcrj3oqcw/image/list/${galleryId}.json`
         );
         const imageUrls = response.data.resources.map((img: any) => img.secure_url);
         setImages(imageUrls);
@@ -30,11 +25,12 @@ const Galeria: React.FC<GaleriaProps> = ({ galerias }) => {
         console.error('Erro ao buscar imagens:', error);
       }
     };
-
+  
     if (galleryId) {
       fetchImages();
     }
   }, [galleryId]);
+  
 
   return (
     <div>

@@ -19,7 +19,7 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
     'Lucas2', 'Nathan', 'Jorge Vitor', 'Vinicius',
   ];
 
-  const handleFileUpload = async () => {
+  const handleFileUpload = async (file: File, selectedId: string) => {
     if (!file || !selectedId) {
       alert('Selecione um ID e uma foto.');
       return;
@@ -72,19 +72,22 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
           type="file"
           id="uploadFoto"
           onChange={(e) => {
-            setFile(e.target.files?.[0] || null);
-            if (e.target.files?.[0]) handleFileUpload();
+            const selectedFile = e.target.files?.[0];
+            if (selectedFile) {
+              setFile(selectedFile);
+              if (selectedId) {
+                handleFileUpload(selectedFile, selectedId); // Passa os dados diretamente
+              } else {
+                alert('Selecione um ID antes de fazer o upload.');
+              }
+            }
           }}
           style={{ display: 'none' }}
-        />
+      />
         <label htmlFor="uploadFoto">
           <img src={addFotos} alt="Adicionar Foto" />
         </label>
       </div>
-
-      <button onClick={handleFileUpload} className={styles.uploadButton}>
-        Enviar Foto
-      </button>
     </section>
   );
 };
