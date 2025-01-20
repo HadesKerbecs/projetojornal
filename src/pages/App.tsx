@@ -84,7 +84,7 @@ const AppContent = () => {
 
 const App = () => {
   return (
-    <BrowserRouter basename='/projetojornal'>
+    <BrowserRouter>
       <AppContent />
     </BrowserRouter>
   );
