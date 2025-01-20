@@ -22,7 +22,18 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto, folderID }) => {
 
   const handleAuthClick = async () => {
     try {
+      // Inicializando o cliente da API se ainda não estiver inicializado
+      if (!gapi.auth2) {
+        await gapi.load("auth2", async () => {
+          gapi.auth2.init({
+            client_id: "427223494579-5nfblhumpetfm34dkhhcm95pb5dqfshf.apps.googleusercontent.com",
+            scope: "https://www.googleapis.com/auth/drive.file",
+          });
+        });
+      }
+  
       const authInstance = gapi.auth2.getAuthInstance();
+  
       if (!authInstance.isSignedIn.get()) {
         await authInstance.signIn();
         alert("Autenticação concluída com sucesso!");
@@ -33,7 +44,8 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto, folderID }) => {
       console.error("Erro durante a autenticação:", error);
       alert("Erro ao autenticar. Verifique as configurações de segurança do navegador.");
     }
-  };  
+  };
+  
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
