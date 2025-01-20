@@ -1,7 +1,6 @@
 import { gapi } from "gapi-script";
-
-const CLIENT_ID = ""; // Do arquivo credentials.json
-const API_KEY = ""; // Gerada no Google Cloud Console
+const CLIENT_ID = "427223494579-5nfblhumpetfm34dkhhcm95pb5dqfshf.apps.googleusercontent.com"; // Do arquivo credentials.json
+const API_KEY = "AIzaSyCMzNNAFjgdk27agUyEC9Q59Xm7-sz_pyM"; // Gerada no Google Cloud Console
 const SCOPES = "https://www.googleapis.com/auth/drive.file"; // Permissão para gerenciar arquivos criados pelo app
 const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
 
