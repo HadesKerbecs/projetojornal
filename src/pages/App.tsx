@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import { HashRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Cabecalho from '../components/Cabecalho';
 import PaginaCentral from '../components/PaginaCentral';
 import Rodape from '../components/Rodape';
 import Jornal from '../components/Jornal';
 import Galeria from '../components/Galeria';
-import { BrowserRouter as Router, Route, Routes, useLocation, BrowserRouter } from 'react-router-dom';
 
 export interface GaleriaInterface {
   [key: string]: string[];
@@ -14,23 +14,11 @@ const AppContent = () => {
   const location = useLocation();
 
   const [galerias, setGalerias] = useState<GaleriaInterface>({
-    gustavo: [],
-    joaovitor: [],
-    eduardo: [],
-    murilo: [],
-    luizfelipe: [],
-    gabriel: [],
-    matheus: [],
-    wallison: [],
-    kelvi: [],
-    luizhenrique: [],
-    lucas: [],
-    lucas2: [],
-    arthur: [],
-    elias: [],
-    nathan: [],
-    jorgevitor: [],
-    vinicius: []
+    gustavo: [], joaovitor: [], eduardo: [], murilo: [],
+    luizfelipe: [], gabriel: [], matheus: [], wallison: [],
+    kelvi: [], luizhenrique: [], lucas: [], lucas2: [],
+    arthur: [], elias: [], nathan: [], jorgevitor: [],
+    vinicius: [],
   });
 
   const handleAddPhoto = (id: string, photo: string) => {
@@ -40,16 +28,7 @@ const AppContent = () => {
     }));
   };
 
-  const handleRemovePhoto = (id: string) => {
-    setGalerias((prev) => {
-      const updatedGalerias = { ...prev };
-      updatedGalerias[id] = [];
-      return updatedGalerias;
-    });
-  };
-
   const RotasSemCabecalho = ['/galeria/:galleryId', '/jornal/:jornalId'];
-
   const RotasComCabecalho = () => {
     return !RotasSemCabecalho.some((rota) => {
       const rotaRegex = new RegExp(`^${rota.replace(/:\w+/g, '\\w+')}$`);
@@ -61,7 +40,7 @@ const AppContent = () => {
     <div>
       {RotasComCabecalho() && <Cabecalho />}
       <Routes>
-        <Route path="/" element={<PaginaCentral onAddPhoto={handleAddPhoto} onRemovePhoto={handleRemovePhoto}/>} />
+        <Route path="/" element={<PaginaCentral onAddPhoto={handleAddPhoto} onRemovePhoto={() => {}} />} />
         <Route path="/galeria/:galleryId" element={<Galeria galerias={galerias} />} />
         <Route path="/jornal/:jornalId" element={<Jornal />} />
       </Routes>
@@ -72,9 +51,9 @@ const AppContent = () => {
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <Router>
       <AppContent />
-    </BrowserRouter>
+    </Router>
   );
 };
 
