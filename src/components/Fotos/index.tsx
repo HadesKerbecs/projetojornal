@@ -68,10 +68,13 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
       </div>
 
       <div className={styles.fotoPlaceholder}>
-        <input
+      <input
           type="file"
           id="uploadFoto"
-          onChange={(e) => setFile(e.target.files?.[0] || null)}
+          onChange={(e) => {
+            setFile(e.target.files?.[0] || null);
+            if (e.target.files?.[0]) handleFileUpload();
+          }}
           style={{ display: 'none' }}
         />
         <label htmlFor="uploadFoto">
