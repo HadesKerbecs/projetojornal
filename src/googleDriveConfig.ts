@@ -4,24 +4,22 @@ const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 const SCOPES = "https://www.googleapis.com/auth/drive.file";
 const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
 
-export const initializeGoogleAPI = () => {
-  gapi.load("client:auth2", () => {
-    gapi.client
-      .init({
-        apiKey: API_KEY,
-        clientId: CLIENT_ID,
-        scope: SCOPES,
-        discoveryDocs: DISCOVERY_DOCS,
-      })
-      .then(() => {
-        console.log("Google API inicializada com sucesso.");
-      })
-      .catch((error: unknown) => {
-        console.error(
-          "Erro ao inicializar a Google API:",
-          error instanceof Error ? error.message : "Erro desconhecido"
-        );
-      });
+export const initializeGoogleAPI = async () => {
+  return new Promise<void>((resolve, reject) => {
+    gapi.load("client:auth2", async () => {
+      try {
+        await gapi.client.init({
+          apiKey: API_KEY,
+          clientId: CLIENT_ID,
+          scope: SCOPES,
+          discoveryDocs: DISCOVERY_DOCS,
+        });
+        resolve();
+      } catch (error) {
+        console.error("Erro ao inicializar Google API:", error);
+        reject(error);
+      }
+    });
   });
 };
 
@@ -30,15 +28,13 @@ export const authenticateUser = async () => {
     const authInstance = gapi.auth2.getAuthInstance();
     if (!authInstance.isSignedIn.get()) {
       await authInstance.signIn();
-      console.log("Usuário autenticado com sucesso.");
     }
-  } catch (error: unknown) {
-    console.error(
-      "Erro ao autenticar o usuário:",
-      error instanceof Error ? error.message : "Erro desconhecido"
-    );
+    console.log("Usuário autenticado com sucesso.");
+  } catch (error) {
+    console.error("Erro ao autenticar o usuário:", error);
   }
 };
+
 
 export const uploadFileToDrive = async (file: File, folderId: string) => {
   try {
