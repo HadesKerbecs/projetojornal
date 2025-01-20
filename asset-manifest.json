@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/projetojornal/static/css/main.de58a5c3.css",
-    "main.js": "/projetojornal/static/js/main.bb47266a.js",
+    "main.js": "/projetojornal/static/js/main.a60c5536.js",
     "static/media/BannerJornal.png": "/projetojornal/static/media/BannerJornal.527fe841ea92d8254c2f.png",
     "static/media/AddFotos.jpg": "/projetojornal/static/media/AddFotos.bd31c060cae7ebe6c180.jpg",
     "static/media/BannerFotos.jpg": "/projetojornal/static/media/BannerFotos.28aa54f6f8d50ce4a574.jpg",
@@ -114,10 +114,10 @@
     "static/media/Jornal5.jpg": "/projetojornal/static/media/Jornal5.5c4bcc20e294b8a1c101.jpg",
     "index.html": "/projetojornal/index.html",
     "main.de58a5c3.css.map": "/projetojornal/static/css/main.de58a5c3.css.map",
-    "main.bb47266a.js.map": "/projetojornal/static/js/main.bb47266a.js.map"
+    "main.a60c5536.js.map": "/projetojornal/static/js/main.a60c5536.js.map"
   },
   "entrypoints": [
     "static/css/main.de58a5c3.css",
-    "static/js/main.bb47266a.js"
+    "static/js/main.a60c5536.js"
   ]
 }
