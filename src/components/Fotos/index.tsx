@@ -40,13 +40,22 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto, folderID }) => {
       } else {
         alert("Você já está autenticado.");
       }
-    } catch (error) {
+    } catch (error: unknown) {  // Tipando o erro como unknown
       console.error("Erro durante a autenticação:", error);
-      alert("Erro ao autenticar. Verifique as configurações de segurança do navegador.");
+  
+      // Verificando se o tipo do erro é realmente Error
+      if (error instanceof Error) {
+        if (error.message === "popup_closed_by_user") {
+          alert("A janela de autenticação foi fechada antes da conclusão. Tente novamente.");
+        } else {
+          alert("Erro ao autenticar. Verifique as configurações de segurança do navegador.");
+        }
+      } else {
+        alert("Erro desconhecido.");
+      }
     }
   };
   
-
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
