@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Fotos.module.scss';
 import addFotos from '../../assets/addFotos/AddFotos.jpg';
-import { uploadFileToDrive } from "../../googleDriveConfig";
+/*import { uploadFileToDrive } from "../../googleDriveConfig";*/
 import { gapi } from 'gapi-script';
 
 interface FotosProps {
