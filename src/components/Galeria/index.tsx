@@ -24,7 +24,7 @@ const Galeria: React.FC<GaleriaProps> = ({ galerias }) => {
         .replace(/\s+/g, "") // Remove espaços
         .toLowerCase(); // Converte para minúsculas
   
-      const prefix = `ProjetoJornal/ProjetoJornal/${normalizedGalleryId}_`; // Ajuste o prefixo para refletir duplicação
+      const prefix = `ProjetoJornal/${normalizedGalleryId}_`; // Ajuste o prefixo para refletir duplicação
       console.log(`Buscando imagens com prefixo: ${prefix}`);
     
       try {

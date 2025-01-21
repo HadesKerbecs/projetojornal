@@ -28,7 +28,7 @@ app.get('/api/images', async (req, res) => {
   }
 
   // Ajusta o prefixo para lidar com a estrutura de subpastas duplicadas no Cloudinary
-  const adjustedPrefix = `ProjetoJornal/ProjetoJornal/${prefix}`;
+  const adjustedPrefix = `${prefix}`;
   console.log(`Prefix ajustado para busca: ${adjustedPrefix}`);
 
   try {
