@@ -37,7 +37,7 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
       .toLowerCase(); 
   
     const formData = new FormData();
-    const publicId = `ProjetoJornal/${normalizedId}_${normalizedFileName}`;
+    const publicId = `${normalizedId}_${normalizedFileName}`;
 
       formData.append('file', file);
       formData.append('upload_preset', 'default_preset');
