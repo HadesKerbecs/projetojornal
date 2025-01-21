@@ -7,23 +7,15 @@ interface FotosProps {
   onAddPhoto: (id: string, photo: string) => void;
 }
 
-const normalizeId = (id: string): string => {
-  return id
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/\s+/g, "")
-    .toLowerCase();
-};
-
 const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
   const [selectedId, setSelectedId] = useState<string>('');
   const [file, setFile] = useState<File | null>(null);
 
   const ids = [
-    'Gustavo', 'Joaovitor', 'Murilo', 'Eduardo',
-    'Luizfelipe', 'Gabriel', 'Matheus', 'Kelvi',
-    'Luizhenrique', 'Lucas', 'Arthur', 'Elias',
-    'Lucas2', 'Nathan', 'Jorgevitor', 'Vinicius',
+    'Gustavo', 'João Vitor', 'Murilo', 'Eduardo',
+    'Luiz Felipe', 'Gabriel', 'Matheus', 'Kelvi',
+    'Luiz Henrique', 'Lucas', 'Arthur', 'Elias',
+    'Lucas2', 'Nathan', 'Jorge Vitor', 'Vinicius',
   ];
 
   const handleFileUpload = async (file: File, selectedId: string) => {
@@ -31,19 +23,14 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
       alert('Selecione um ID e uma foto.');
       return;
     }
-  
-    const normalizedId = normalizeId(selectedId);
-  
-    const publicId = `${normalizedId}_${file.name}`;
-  
+
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset', 'default_preset');
-    formData.append('folder', 'ProjetoJornal');
-    formData.append('public_id', publicId);
-    formData.append('tags', normalizedId);
-    console.log('Enviando foto com public_id:', `ProjetoJornal/${publicId}`);
-    
+    formData.append('upload_preset', 'default_preset'); // Substitua pelo nome do seu preset no Cloudinary
+    formData.append('folder', 'ProjetoJornal'); // Nome da pasta no Cloudinary
+    formData.append('public_id', `ProjetoJornal/${selectedId}_${file.name}`);
+    formData.append('tags', selectedId); // Associa a foto ao ID
+    console.log('Enviando foto com public_id:', `ProjetoJornal/${selectedId}_${file.name}`);
     try {
       const response = await axios.post(
         'https://api.cloudinary.com/v1_1/dcrj3oqcw/image/upload',
@@ -51,12 +38,12 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
       );
       const photoUrl = response.data.secure_url;
       alert(`Foto enviada com sucesso! URL: ${photoUrl}`);
-      onAddPhoto(normalizedId, photoUrl);
+      onAddPhoto(selectedId, photoUrl);
     } catch (error) {
       console.error('Erro ao enviar a foto:', error);
       alert('Erro ao enviar a foto.');
     }
-  };  
+  };
 
   return (
     <section className={styles.selecaoFoto}>
