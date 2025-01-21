@@ -14,25 +14,27 @@ app.get('/api/images', async (req, res) => {
   console.log(`Prefix recebido: ${prefix}`);
 
   try {
-    // Requisição para o Cloudinary
     const response = await axios.get(
-      `https://api.cloudinary.com/v1_1/dcrj3oqcw/resources/image`, // Substitua pelo seu cloud_name
+      `https://api.cloudinary.com/v1_1/dcrj3oqcw/resources/image`,
       {
-        params: { prefix }, // Filtra imagens pelo prefixo
+        params: { prefix },
         auth: {
-          username: process.env.CLOUDINARY_API_KEY, // Sua API Key (via variáveis de ambiente no Render)
-          password: process.env.CLOUDINARY_API_SECRET, // Sua API Secret (via variáveis de ambiente no Render)
+          username: process.env.CLOUDINARY_API_KEY,
+          password: process.env.CLOUDINARY_API_SECRET,
         },
       }
     );
-
-    console.log('Resposta do Cloudinary recebida:', response.data.resources.length, 'imagens encontradas');
+  
+    console.log('Resposta completa do Cloudinary:', response.data);
+    console.log('Imagens encontradas:', response.data.resources.map((r) => r.secure_url));
     res.json(response.data); // Envia as imagens para o frontend
   } catch (error) {
     console.error('Erro ao buscar imagens do Cloudinary:', error.message);
+    if (error.response) {
+      console.error('Detalhes do erro (Cloudinary):', error.response.data);
+    }
     res.status(500).json({ error: 'Erro ao buscar imagens do Cloudinary' });
-  }
-});
+  }  
 
 // Rota de teste (opcional)
 app.get('/', (req, res) => {

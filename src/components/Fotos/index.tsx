@@ -30,7 +30,7 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
     formData.append('folder', 'ProjetoJornal'); // Nome da pasta no Cloudinary
     formData.append('public_id', `ProjetoJornal/${selectedId}_${file.name}`);
     formData.append('tags', selectedId); // Associa a foto ao ID
-
+    console.log('Enviando foto com public_id:', `ProjetoJornal/${selectedId}_${file.name}`);
     try {
       const response = await axios.post(
         'https://api.cloudinary.com/v1_1/dcrj3oqcw/image/upload',

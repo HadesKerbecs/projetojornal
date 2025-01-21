@@ -16,6 +16,8 @@ const Galeria: React.FC<GaleriaProps> = ({ galerias }) => {
   useEffect(() => {
     const fetchImages = async () => {
       if (!galleryId) return;
+
+      console.log(`Buscando imagens com prefixo: ProjetoJornal/${galleryId}_`);
   
       try {
         const response = await axios.get(
