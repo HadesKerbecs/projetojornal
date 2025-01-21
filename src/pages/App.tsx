@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Cabecalho from '../components/Cabecalho';
 import PaginaCentral from '../components/PaginaCentral';
@@ -40,7 +41,7 @@ const AppContent = () => {
     <div>
       {RotasComCabecalho() && <Cabecalho />}
       <Routes>
-        <Route path="/" element={<PaginaCentral onAddPhoto={handleAddPhoto} onRemovePhoto={() => {}} />} />
+        <Route path="/" element={<PaginaCentral onAddPhoto={handleAddPhoto}/>} />
         <Route path="/galeria/:galleryId" element={<Galeria galerias={galerias} />} />
         <Route path="/jornal/:jornalId" element={<Jornal />} />
       </Routes>

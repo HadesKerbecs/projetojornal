@@ -27,10 +27,9 @@ import capaVinicius from '../../assets/CapaMembros/imgVinicius/Capa.jpg';
 
 interface PaginaCentralProps {
   onAddPhoto: (id: string, photo: string) => void;
-  onRemovePhoto: (id: string) => void;
 }
 
-const PaginaCentral: React.FC<PaginaCentralProps> = ({ onAddPhoto, onRemovePhoto}) => {
+const PaginaCentral: React.FC<PaginaCentralProps> = ({ onAddPhoto}) => {
   const navigate = useNavigate();
 
   const cards = [
@@ -145,7 +144,7 @@ const PaginaCentral: React.FC<PaginaCentralProps> = ({ onAddPhoto, onRemovePhoto
         ))}        
         </div>
       </section>
-      <Fotos onAddPhoto={onAddPhoto} onRemovePhoto={onRemovePhoto}/>
+      <Fotos onAddPhoto={onAddPhoto}/>
     </main>
   );
 };

@@ -5,7 +5,6 @@ import axios from 'axios';
 
 interface FotosProps {
   onAddPhoto: (id: string, photo: string) => void;
-  onRemovePhoto: (id: string) => void;
 }
 
 const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
@@ -29,7 +28,7 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
     formData.append('file', file);
     formData.append('upload_preset', 'default_preset'); // Substitua pelo nome do seu preset no Cloudinary
     formData.append('folder', 'ProjetoJornal'); // Nome da pasta no Cloudinary
-    formData.append('public_id', `${selectedId}_${file.name}`);
+    formData.append('public_id', `ProjetoJornal/${selectedId}_${file.name}`);
     formData.append('tags', selectedId); // Associa a foto ao ID
 
     try {
