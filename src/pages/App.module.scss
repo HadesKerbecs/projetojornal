@@ -1,0 +1,14 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o rodapé fique fixado no final da tela */
+  }
+  
+  .content {
+    flex: 1; /* Expande para ocupar o espaço disponível entre o cabeçalho e o rodapé */
+  }
+  
+  .main {
+    padding: 20px; /* Adicione margens ou espaçamentos personalizados */
+  }
+  
