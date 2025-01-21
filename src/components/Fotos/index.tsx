@@ -14,8 +14,8 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
   const ids = [
     'Gustavo', 'João Vitor', 'Murilo', 'Eduardo',
     'Luiz Felipe', 'Gabriel', 'Matheus', 'Kelvi',
-    'Luiz Henrique', 'Lucas', 'Arthur', 'Elias',
-    'Lucas2', 'Nathan', 'Jorge Vitor', 'Vinicius',
+    'Luiz Henrique', 'Lucas Chaves', 'Arthur', 'Elias',
+    'Lucas Santos', 'Nathan', 'Jorge Vitor', 'Vinicius',
   ];
 
   const handleFileUpload = async (file: File, selectedId: string) => {

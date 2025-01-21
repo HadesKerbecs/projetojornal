@@ -43,10 +43,10 @@ const PaginaCentral: React.FC<PaginaCentralProps> = ({ onAddPhoto}) => {
     { name: "Wallison", image: capaWallison, id: "wallison" },
     { name: "Kelvi", image: capaKelvi, id: "kelvi" },
     { name: "Luiz Henrique", image: capaImgLuizHenrique, id: "luizhenrique" },
-    { name: "Lucas", image: capaLucas, id: "lucas" },
+    { name: "Lucas Chaves", image: capaLucas, id: "lucaschaves" },
     { name: "Arthur", image: capaArthur, id: "arthur" },
     { name: "Elias", image: capaImgElias, id: "elias" },
-    { name: "Lucas2", image: capaLucas2, id: "lucas2" },
+    { name: "Lucas Santos", image: capaLucas2, id: "lucassantos" },
     { name: "Nathan", image: capaNathan, id: "nathan" },
     { name: "Jorge Vitor", image: capaImgJorgeVitor, id: "jorgevitor" },
     { name: "Vinicius", image: capaVinicius, id: "vinicius" }
