@@ -23,14 +23,22 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
       alert('Selecione um ID e uma foto.');
       return;
     }
-
+  
+    const normalizedId = selectedId
+      .normalize("NFD") // Remove acentos
+      .replace(/[\u0300-\u036f]/g, "") // Remove marcas diacríticas
+      .replace(/\s+/g, "") // Remove espaços
+      .toLowerCase(); // Converte para minúsculas
+  
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset', 'default_preset'); // Substitua pelo nome do seu preset no Cloudinary
-    formData.append('folder', 'ProjetoJornal'); // Nome da pasta no Cloudinary
-    formData.append('public_id', `ProjetoJornal/${selectedId}_${file.name}`);
-    formData.append('tags', selectedId); // Associa a foto ao ID
-    console.log('Enviando foto com public_id:', `ProjetoJornal/${selectedId}_${file.name}`);
+    formData.append('upload_preset', 'default_preset'); // Substitua pelo preset do Cloudinary
+    formData.append('folder', 'ProjetoJornal'); // Define a pasta
+    formData.append('public_id', `${normalizedId}_${file.name}`); // Evita duplicação
+    formData.append('tags', normalizedId);
+  
+    console.log('Enviando foto com public_id:', `${normalizedId}_${file.name}`);
+    
     try {
       const response = await axios.post(
         'https://api.cloudinary.com/v1_1/dcrj3oqcw/image/upload',
@@ -38,12 +46,13 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
       );
       const photoUrl = response.data.secure_url;
       alert(`Foto enviada com sucesso! URL: ${photoUrl}`);
-      onAddPhoto(selectedId, photoUrl);
+      onAddPhoto(normalizedId, photoUrl);
     } catch (error) {
       console.error('Erro ao enviar a foto:', error);
       alert('Erro ao enviar a foto.');
     }
   };
+  
 
   return (
     <section className={styles.selecaoFoto}>

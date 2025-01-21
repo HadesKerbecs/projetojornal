@@ -9,6 +9,14 @@ interface GaleriaProps {
   galerias: GaleriaInterface;
 }
 
+const normalizeId = (id: string): string => {
+  return id
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "")
+    .toLowerCase();
+};
+
 const Galeria: React.FC<GaleriaProps> = ({ galerias }) => {
   const { galleryId } = useParams<{ galleryId: string }>();
   const [images, setImages] = useState<string[]>([]);
@@ -17,15 +25,17 @@ const Galeria: React.FC<GaleriaProps> = ({ galerias }) => {
     const fetchImages = async () => {
       if (!galleryId) return;
 
-      console.log(`Buscando imagens com prefixo: ProjetoJornal/${galleryId}_`);
+      const normalizedGalleryId = normalizeId(galleryId);
+
+      console.log(`Buscando imagens com prefixo: ProjetoJornal/${normalizedGalleryId}_`);
   
       try {
         const response = await axios.get(
-          `https://projetojornal.onrender.com/api/images?prefix=ProjetoJornal/${galleryId}_`
+          `https://projetojornal.onrender.com/api/images?prefix=ProjetoJornal/${normalizedGalleryId}_`
         );
 
         console.log('Imagens retornadas:', response.data.resources);
-        const imageUrls = response.data.resources.map((img: { secure_url: any; }) => img.secure_url);
+        const imageUrls = response.data.resources.map((img: { secure_url: string }) => img.secure_url);
         setImages(imageUrls);
       } catch (error) {
         console.error('Erro ao buscar imagens:', error);
