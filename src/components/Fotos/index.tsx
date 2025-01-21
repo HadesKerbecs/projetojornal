@@ -36,16 +36,16 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
       .replace(/\s+/g, "") 
       .toLowerCase(); 
   
-    const formData = new FormData();
-    const publicId = `ProjetoJornal/${normalizedId}_${normalizedFileName}`;
+      const publicId = `${normalizedId}_${normalizedFileName}`;
 
-      formData.append('file', file);
+      const formData = new FormData();
+      formData.append('file', file)
       formData.append('upload_preset', 'default_preset');
       formData.append('public_id', publicId);
-      // Não inclua o formData.append('folder', ...)
+      formData.append('folder', 'ProjetoJornal');
       formData.append('tags', normalizedId);
-  
-    console.log('Enviando foto com public_id:', `${normalizedId}_${normalizedFileName}`);
+    
+      console.log('Enviando foto com public_id:', publicId);
     
     try {
       const response = await axios.post(
