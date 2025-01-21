@@ -7,6 +7,14 @@ interface FotosProps {
   onAddPhoto: (id: string, photo: string) => void;
 }
 
+const normalizeId = (id: string): string => {
+  return id
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "")
+    .toLowerCase();
+};
+
 const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
   const [selectedId, setSelectedId] = useState<string>('');
   const [file, setFile] = useState<File | null>(null);
@@ -23,13 +31,13 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
       alert('Selecione um ID e uma foto.');
       return;
     }
-
+    const normalizedId = normalizeId(selectedId);
     const formData = new FormData();
     formData.append('file', file);
     formData.append('upload_preset', 'default_preset'); // Substitua pelo nome do seu preset no Cloudinary
     formData.append('folder', 'ProjetoJornal'); // Nome da pasta no Cloudinary
     formData.append('public_id', `ProjetoJornal/${selectedId}_${file.name}`);
-    formData.append('tags', selectedId); // Associa a foto ao ID
+    formData.append('tags', normalizedId); // Associa a foto ao ID
     console.log('Enviando foto com public_id:', `ProjetoJornal/${selectedId}_${file.name}`);
     try {
       const response = await axios.post(
