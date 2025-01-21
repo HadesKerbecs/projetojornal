@@ -37,11 +37,13 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
       .toLowerCase(); 
   
     const formData = new FormData();
-    formData.append('file', file);
-    formData.append('upload_preset', 'default_preset');
-    formData.append('public_id', `${normalizedId}_${normalizedFileName}`);
-    formData.append('folder', 'ProjetoJornal');
-    formData.append('tags', normalizedId);
+    const publicId = `ProjetoJornal/${normalizedId}_${normalizedFileName}`;
+
+      formData.append('file', file);
+      formData.append('upload_preset', 'default_preset');
+      formData.append('public_id', publicId);
+      // Não inclua o formData.append('folder', ...)
+      formData.append('tags', normalizedId);
   
     console.log('Enviando foto com public_id:', `${normalizedId}_${normalizedFileName}`);
     
