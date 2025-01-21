@@ -9,6 +9,14 @@ interface GaleriaProps {
   galerias: GaleriaInterface;
 }
 
+const normalizeId = (id: string): string => {
+  return id
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "")
+    .toLowerCase();
+};
+
 const Galeria: React.FC<GaleriaProps> = ({ galerias }) => {
   const { galleryId } = useParams<{ galleryId: string }>();
   const [images, setImages] = useState<string[]>([]);
@@ -16,26 +24,17 @@ const Galeria: React.FC<GaleriaProps> = ({ galerias }) => {
   useEffect(() => {
     const fetchImages = async () => {
       if (!galleryId) return;
+
+      const normalizedGalleryId = normalizeId(galleryId);
+
+      console.log(`Buscando imagens com prefixo: ProjetoJornal/${normalizedGalleryId}_`);
   
-      // Normaliza o ID da galeria para o mesmo padrão usado no upload
-      const normalizedGalleryId = galleryId
-        .normalize("NFD")
-        .replace(/[̀-\u036f]/g, "") // Remove acentos
-        .replace(/\s+/g, "") // Remove espaços
-        .toLowerCase(); // Converte para minúsculas
-  
-      const prefix = `ProjetoJornal/${normalizedGalleryId}_`; // Ajuste o prefixo para refletir duplicação
-      console.log(`Buscando imagens com prefixo: ${prefix}`);
-    
       try {
-        // Requisição para o backend com o prefixo correto
         const response = await axios.get(
-          `https://projetojornal.onrender.com/api/images?prefix=${prefix}`
+          `https://projetojornal.onrender.com/api/images?prefix=ProjetoJornal/${normalizedGalleryId}_`
         );
-  
+
         console.log('Imagens retornadas:', response.data.resources);
-  
-        // Extrai os URLs das imagens e os adiciona ao estado
         const imageUrls = response.data.resources.map((img: { secure_url: string }) => img.secure_url);
         setImages(imageUrls);
       } catch (error) {
@@ -43,8 +42,8 @@ const Galeria: React.FC<GaleriaProps> = ({ galerias }) => {
       }
     };
   
-    fetchImages(); // Chama a função para buscar imagens
-  }, [galleryId]); // Dependência do ID da galeria
+    fetchImages();
+  }, [galleryId]);  
 
   return (
     <div>

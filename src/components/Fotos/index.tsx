@@ -23,29 +23,30 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
       alert('Selecione um ID e uma foto.');
       return;
     }
-
+  
     const normalizedId = selectedId
       .normalize("NFD") 
-      .replace(/[̀-\u036f]/g, "") 
+      .replace(/[\u0300-\u036f]/g, "") 
       .replace(/\s+/g, "") 
       .toLowerCase(); 
 
     const normalizedFileName = file.name
       .normalize("NFD") 
-      .replace(/[̀-\u036f]/g, "") 
+      .replace(/[\u0300-\u036f]/g, "") 
       .replace(/\s+/g, "") 
       .toLowerCase(); 
-
+  
     const formData = new FormData();
-    const publicId = `ProjetoJornal/ProjetoJornal/${normalizedId}_${normalizedFileName}`; // Caminho ajustado para refletir a duplicação da pasta
+    const publicId = `ProjetoJornal/${normalizedId}_${normalizedFileName}`;
 
-    formData.append('file', file);
-    formData.append('upload_preset', 'default_preset');
-    formData.append('public_id', publicId);
-    formData.append('tags', normalizedId);
-
-    console.log('Enviando foto com public_id:', publicId);
-
+      formData.append('file', file);
+      formData.append('upload_preset', 'default_preset');
+      formData.append('public_id', publicId);
+      // Não inclua o formData.append('folder', ...)
+      formData.append('tags', normalizedId);
+  
+    console.log('Enviando foto com public_id:', `${normalizedId}_${normalizedFileName}`);
+    
     try {
       const response = await axios.post(
         'https://api.cloudinary.com/v1_1/dcrj3oqcw/image/upload',
@@ -59,6 +60,7 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
       alert('Erro ao enviar a foto.');
     }
   };
+  
 
   return (
     <section className={styles.selecaoFoto}>
@@ -82,7 +84,7 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
       </div>
 
       <div className={styles.fotoPlaceholder}>
-        <input
+      <input
           type="file"
           id="uploadFoto"
           onChange={(e) => {
@@ -97,7 +99,7 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
             }
           }}
           style={{ display: 'none' }}
-        />
+      />
         <label htmlFor="uploadFoto">
           <img src={addFotos} alt="Adicionar Foto" />
         </label>
