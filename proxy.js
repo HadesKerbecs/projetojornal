@@ -4,14 +4,21 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors({
-   origin: (origin, callback) => {
-    if (origin && origin.startsWith('https://hadeskerbecs.github.io')){
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      'https://hadeskerbecs.github.io',
+      'https://hadeskerbecs.github.io/projetojornal'
+    ];
+    
+    if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
-    }else{
+    } else {
+      console.error(`Origin não permitida pelo CORS: ${origin}`);
       callback(new Error('Origin não permitida pelo CORS'));
-    } 
+    }
   }
 }));
+
 
 app.get('/api/images', async (req, res) => {
   const { prefix } = req.query;
