@@ -25,15 +25,16 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
     }
   
     const normalizedId = selectedId
-      .normalize("NFD") // Remove acentos
-      .replace(/[\u0300-\u036f]/g, "") // Remove marcas diacríticas
-      .replace(/\s+/g, "") // Remove espaços
-      .toLowerCase(); // Converte para minúsculas
+      .normalize("NFD") 
+      .replace(/[\u0300-\u036f]/g, "") 
+      .replace(/\s+/g, "") 
+      .toLowerCase(); 
   
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset', 'default_preset'); // Substitua pelo preset do Cloudinary
-    formData.append('folder', 'ProjetoJornal'); // Define a pasta
+    formData.append('upload_preset', 'default_preset');
+    formData.append('public_id', `${normalizedId}_${file.name}`);
+    formData.append('folder', 'ProjetoJornal');
     formData.append('tags', normalizedId);
   
     console.log('Enviando foto com public_id:', `${normalizedId}_${file.name}`);
