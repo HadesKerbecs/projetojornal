@@ -3,7 +3,7 @@ const axios = require('axios');
 const cors = require('cors');
 const app = express();
 
-app.use(cors({ origin: 'https://hadeskerbecs.github.io' }));
+app.use(cors({ origin: 'https://hadeskerbecs.github.io/projetojornal/' }));
 
 
 app.get('/api/images', async (req, res) => {
