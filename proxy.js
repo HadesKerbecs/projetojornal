@@ -18,7 +18,7 @@ app.get('/api/images', async (req, res) => {
     const response = await axios.get(
       `https://api.cloudinary.com/v1_1/dcrj3oqcw/resources/image`,
       {
-        params: { prefix }, // Filtra imagens pelo prefixo
+        params: { prefix, type: 'upload'}, // Filtra imagens pelo prefixo
         auth: {
           username: process.env.CLOUDINARY_API_KEY, // Credenciais do Cloudinary
           password: process.env.CLOUDINARY_API_SECRET,
