@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Cabecalho from '../components/Cabecalho';
 import PaginaCentral from '../components/PaginaCentral';
