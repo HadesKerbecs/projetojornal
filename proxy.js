@@ -1,10 +1,13 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors');
 const app = express();
 
-// Rota principal para buscar imagens do Cloudinary
+app.use(cors({ origin: 'https://hadeskerbecs.github.io' }));
+
+
 app.get('/api/images', async (req, res) => {
-  const { prefix } = req.query; // Prefixo enviado pelo frontend
+  const { prefix } = req.query;
 
   if (!prefix) {
     console.error('Erro: Prefix não enviado pelo frontend.');
@@ -14,13 +17,12 @@ app.get('/api/images', async (req, res) => {
   console.log(`Prefix recebido: ${prefix}`);
 
   try {
-    // Requisição para o Cloudinary
     const response = await axios.get(
       `https://api.cloudinary.com/v1_1/dcrj3oqcw/resources/image`,
       {
-        params: { prefix, type: 'upload'}, // Filtra imagens pelo prefixo
+        params: { prefix, type: 'upload'},
         auth: {
-          username: process.env.CLOUDINARY_API_KEY, // Credenciais do Cloudinary
+          username: process.env.CLOUDINARY_API_KEY,
           password: process.env.CLOUDINARY_API_SECRET,
         },
       }
@@ -28,14 +30,13 @@ app.get('/api/images', async (req, res) => {
 
     console.log('Resposta completa do Cloudinary:', response.data);
     console.log('Imagens encontradas:', response.data.resources.map((r) => r.secure_url));
-    res.json(response.data); // Envia as imagens para o frontend
+    res.json(response.data);
   } catch (error) {
     console.error('Erro ao buscar imagens do Cloudinary:', error.message);
     if (error.response) {
       console.error('Detalhes do erro (Cloudinary):', error.response.data);
     }
 
-    // Resposta de erro mais detalhada para o cliente
     res.status(500).json({
       error: 'Erro ao buscar imagens do Cloudinary',
       details: error.response?.data || 'Nenhuma resposta detalhada do Cloudinary',
@@ -43,13 +44,11 @@ app.get('/api/images', async (req, res) => {
   }
 });
 
-// Rota de teste (opcional)
 app.get('/', (req, res) => {
   res.send('Servidor funcionando! Use a rota /api/images para buscar imagens.');
 });
 
-// Configuração do servidor
-const PORT = process.env.PORT || 5000; // Porta configurável
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
