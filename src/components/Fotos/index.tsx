@@ -29,15 +29,21 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
       .replace(/[\u0300-\u036f]/g, "") 
       .replace(/\s+/g, "") 
       .toLowerCase(); 
+
+    const normalizedFileName = file.name
+      .normalize("NFD") 
+      .replace(/[\u0300-\u036f]/g, "") 
+      .replace(/\s+/g, "") 
+      .toLowerCase(); 
   
     const formData = new FormData();
     formData.append('file', file);
     formData.append('upload_preset', 'default_preset');
-    formData.append('public_id', `${normalizedId}_${file.name}`);
+    formData.append('public_id', `${normalizedId}_${normalizedFileName}`);
     formData.append('folder', 'ProjetoJornal');
     formData.append('tags', normalizedId);
   
-    console.log('Enviando foto com public_id:', `${normalizedId}_${file.name}`);
+    console.log('Enviando foto com public_id:', `${normalizedId}_${normalizedFileName}`);
     
     try {
       const response = await axios.post(
