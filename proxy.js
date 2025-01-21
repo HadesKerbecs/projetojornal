@@ -3,8 +3,15 @@ const axios = require('axios');
 const cors = require('cors');
 const app = express();
 
-app.use(cors({ origin: 'https://hadeskerbecs.github.io/projetojornal/' }));
-
+app.use(cors({
+   origin: (origin, callback) => {
+    if (origin && origin.startsWith('https://hadeskerbecs.github.io')){
+      callback(null, true);
+    }else{
+      callback(new Error('Origin não permitida pelo CORS'));
+    } 
+  }
+}));
 
 app.get('/api/images', async (req, res) => {
   const { prefix } = req.query;
