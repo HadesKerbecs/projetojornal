@@ -34,7 +34,6 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
     formData.append('file', file);
     formData.append('upload_preset', 'default_preset'); // Substitua pelo preset do Cloudinary
     formData.append('folder', 'ProjetoJornal'); // Define a pasta
-    formData.append('public_id', `${normalizedId}_${file.name}`); // Evita duplicação
     formData.append('tags', normalizedId);
   
     console.log('Enviando foto com public_id:', `${normalizedId}_${file.name}`);
