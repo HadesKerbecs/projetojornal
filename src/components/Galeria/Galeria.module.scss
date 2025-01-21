@@ -26,19 +26,18 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     margin-top: 20px;
-
-    @media (max-width: 1024px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
   }
   
   .imageCard {
     display: flex;
+    flex-direction: column;
+    aspect-ratio: 1;
     align-items: center;
     background-color: #f0f0f0;
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 8px;
+    overflow: hidden;
   }
   
   .imageCard img {
