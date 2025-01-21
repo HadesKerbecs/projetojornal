@@ -19,7 +19,7 @@ const Galeria: React.FC<GaleriaProps> = ({ galerias }) => {
   
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/images?prefix=ProjetoJornal/${galleryId}_`
+          `https://projetojornal.onrender.com/api/images?prefix=ProjetoJornal/${galleryId}_`
         );
   
         const imageUrls = response.data.resources.map((img: { secure_url: any; }) => img.secure_url);
