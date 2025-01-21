@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/projetojornal/static/css/main.121f01ae.css",
+    "main.css": "/projetojornal/static/css/main.15f83a59.css",
     "main.js": "/projetojornal/static/js/main.d85608fb.js",
     "static/media/BannerJornal.png": "/projetojornal/static/media/BannerJornal.527fe841ea92d8254c2f.png",
     "static/media/AddFotos.jpg": "/projetojornal/static/media/AddFotos.bd31c060cae7ebe6c180.jpg",
@@ -113,11 +113,11 @@
     "static/media/Jornal24.jpg": "/projetojornal/static/media/Jornal24.5160db8b780afb038580.jpg",
     "static/media/Jornal5.jpg": "/projetojornal/static/media/Jornal5.5c4bcc20e294b8a1c101.jpg",
     "index.html": "/projetojornal/index.html",
-    "main.121f01ae.css.map": "/projetojornal/static/css/main.121f01ae.css.map",
+    "main.15f83a59.css.map": "/projetojornal/static/css/main.15f83a59.css.map",
     "main.d85608fb.js.map": "/projetojornal/static/js/main.d85608fb.js.map"
   },
   "entrypoints": [
-    "static/css/main.121f01ae.css",
+    "static/css/main.15f83a59.css",
     "static/js/main.d85608fb.js"
   ]
 }
