@@ -8,13 +8,6 @@ import { GaleriaInterface } from '../../pages/App';
 interface GaleriaProps {
   galerias: GaleriaInterface;
 }
-const normalizeId = (id: string): string => {
-  return id
-    .normalize("NFD") 
-    .replace(/[\u0300-\u036f]/g, "") 
-    .replace(/\s+/g, "")
-    .toLowerCase();
-};
 
 const Galeria: React.FC<GaleriaProps> = ({ galerias }) => {
   const { galleryId } = useParams<{ galleryId: string }>();
@@ -24,13 +17,11 @@ const Galeria: React.FC<GaleriaProps> = ({ galerias }) => {
     const fetchImages = async () => {
       if (!galleryId) return;
 
-      const normalizedGalleryId = normalizeId(galleryId);
-
-      console.log(`Buscando imagens com prefixo: ProjetoJornal/${normalizedGalleryId}_`);
+      console.log(`Buscando imagens com prefixo: ProjetoJornal/${galleryId}_`);
   
       try {
         const response = await axios.get(
-          `https://projetojornal.onrender.com/api/images?prefix=ProjetoJornal/${normalizedGalleryId}_`
+          `https://projetojornal.onrender.com/api/images?prefix=ProjetoJornal/${galleryId}_`
         );
 
         console.log('Imagens retornadas:', response.data.resources);
