@@ -4,7 +4,6 @@ import PaginaCentral from '../components/PaginaCentral';
 import Rodape from '../components/Rodape';
 import Jornal from '../components/Jornal';
 import Galeria from '../components/Galeria';
-import styles from './App.module.scss';
 import { BrowserRouter as Router, Route, Routes, useLocation, BrowserRouter } from 'react-router-dom';
 
 export interface GaleriaInterface {
@@ -38,16 +37,18 @@ const AppContent = () => {
   };
 
   return (
-    <div className={styles.app}>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       {RotasComCabecalho() && <Cabecalho />}
-      <main className={styles.content}>
-      <Routes>
-        <Route path="/" element={<PaginaCentral onAddPhoto={handleAddPhoto}/>} />
-        <Route path="/galeria/:galleryId" element={<Galeria galerias={galerias} />} />
-        <Route path="/jornal/:jornalId" element={<Jornal />} />
-      </Routes>
+      <main style={{ flex: 1, marginBottom: 'auto' }}>
+        <Routes>
+          <Route path="/" element={<PaginaCentral onAddPhoto={handleAddPhoto}/>} />
+          <Route path="/galeria/:galleryId" element={<Galeria galerias={galerias} />} />
+          <Route path="/jornal/:jornalId" element={<Jornal />} />
+        </Routes>
       </main>
-      <Rodape />
+      <footer>
+        <Rodape />
+      </footer>
     </div>
   );
 };
