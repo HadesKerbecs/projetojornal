@@ -6,6 +6,7 @@ const app = express();
 app.use(cors({
   origin: (origin, callback) => {
     const allowedOrigins = [
+      'https://hadeskerbecs.github.io',
       'https://hadeskerbecs.github.io/projetojornal'
     ];
     
