@@ -20,11 +20,11 @@ const Galeria: React.FC<GaleriaProps> = ({ galerias }) => {
       // Normaliza o ID da galeria para o mesmo padrão usado no upload
       const normalizedGalleryId = galleryId
         .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "") // Remove acentos
+        .replace(/[̀-\u036f]/g, "") // Remove acentos
         .replace(/\s+/g, "") // Remove espaços
         .toLowerCase(); // Converte para minúsculas
   
-      const prefix = `ProjetoJornal/${normalizedGalleryId}_`; // Ajuste o prefixo
+      const prefix = `ProjetoJornal/ProjetoJornal/${normalizedGalleryId}_`; // Ajuste o prefixo para refletir duplicação
       console.log(`Buscando imagens com prefixo: ${prefix}`);
     
       try {

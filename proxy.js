@@ -9,7 +9,7 @@ app.use(cors({
       'https://hadeskerbecs.github.io',
       'https://hadeskerbecs.github.io/projetojornal'
     ];
-    
+
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -19,7 +19,6 @@ app.use(cors({
   }
 }));
 
-
 app.get('/api/images', async (req, res) => {
   const { prefix } = req.query;
 
@@ -28,13 +27,15 @@ app.get('/api/images', async (req, res) => {
     return res.status(400).json({ error: 'O parâmetro "prefix" é obrigatório' });
   }
 
-  console.log(`Prefix recebido: ${prefix}`);
+  // Ajusta o prefixo para lidar com a estrutura de subpastas duplicadas no Cloudinary
+  const adjustedPrefix = `ProjetoJornal/ProjetoJornal/${prefix}`;
+  console.log(`Prefix ajustado para busca: ${adjustedPrefix}`);
 
   try {
     const response = await axios.get(
       `https://api.cloudinary.com/v1_1/dcrj3oqcw/resources/image`,
       {
-        params: { prefix, type: 'upload', max_results: 100},
+        params: { prefix: adjustedPrefix, type: 'upload', max_results: 100 },
         auth: {
           username: process.env.CLOUDINARY_API_KEY,
           password: process.env.CLOUDINARY_API_SECRET,
