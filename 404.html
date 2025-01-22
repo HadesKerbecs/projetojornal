@@ -16,10 +16,10 @@
       // Redireciona para o caminho correto
       var path = window.location.pathname;
       if (!path.startsWith('/projetojornal')) {
-        window.location.href = '/projetojornal' + path;
+        window.location.replace('/projetojornal' + path);
       } else {
         // Se já estiver no caminho correto, renderiza a aplicação React
-        window.location.href = path;
+        window.location.replace('/projetojornal' + path.substring('/projetojornal'.length));
       }
     </script>
   </body>
