@@ -17,12 +17,7 @@
       if (!path.startsWith('/projetojornal')) {
         window.location.href = '/projetojornal' + path;
       } else {
-        var cleanPath = path.replace('/projetojornal', '');
-        if (cleanPath === '') {
-          window.location.href = '/projetojornal/';
-        } else {
-          window.location.href = path;
-        }
+        window.location.href = '/projetojornal/';
       }
     </script>
   </body>
