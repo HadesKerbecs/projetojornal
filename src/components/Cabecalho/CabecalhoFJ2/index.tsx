@@ -26,7 +26,12 @@ const CabecalhoFJ2 = () => {
                 <h1>Jornal</h1>
                 <p>Aqui temos o jornal de {journalName} da Tropa do Juízo Final</p>
             </div>
-            <h2 onClick={voltarPagina}>VOLTAR</h2>
+            <button 
+                    className={styles.voltarButton} 
+                    onClick={voltarPagina}
+            >
+                    VOLTAR
+            </button>
             </header>
         </div>
     );
