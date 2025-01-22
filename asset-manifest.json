@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/projetojornal/static/css/main.15f83a59.css",
-    "main.js": "/projetojornal/static/js/main.d85608fb.js",
-    "static/media/BannerJornal.png": "/projetojornal/static/media/BannerJornal.527fe841ea92d8254c2f.png",
+    "main.css": "/projetojornal/static/css/main.95f15d38.css",
+    "main.js": "/projetojornal/static/js/main.4e415ec1.js",
     "static/media/AddFotos.jpg": "/projetojornal/static/media/AddFotos.bd31c060cae7ebe6c180.jpg",
+    "static/media/BannerJornal.jpg": "/projetojornal/static/media/BannerJornal.6616290b65e355c59895.jpg",
     "static/media/BannerFotos.jpg": "/projetojornal/static/media/BannerFotos.28aa54f6f8d50ce4a574.jpg",
     "static/media/bannerNoticias.jpg": "/projetojornal/static/media/bannerNoticias.8fc8388d821e8c265232.jpg",
     "static/media/LogoTJF.png": "/projetojornal/static/media/LogoTJF.3dbfaab573ec47626dbc.png",
@@ -113,11 +113,11 @@
     "static/media/Jornal24.jpg": "/projetojornal/static/media/Jornal24.5160db8b780afb038580.jpg",
     "static/media/Jornal5.jpg": "/projetojornal/static/media/Jornal5.5c4bcc20e294b8a1c101.jpg",
     "index.html": "/projetojornal/index.html",
-    "main.15f83a59.css.map": "/projetojornal/static/css/main.15f83a59.css.map",
-    "main.d85608fb.js.map": "/projetojornal/static/js/main.d85608fb.js.map"
+    "main.95f15d38.css.map": "/projetojornal/static/css/main.95f15d38.css.map",
+    "main.4e415ec1.js.map": "/projetojornal/static/js/main.4e415ec1.js.map"
   },
   "entrypoints": [
-    "static/css/main.15f83a59.css",
-    "static/js/main.d85608fb.js"
+    "static/css/main.95f15d38.css",
+    "static/js/main.4e415ec1.js"
   ]
 }
