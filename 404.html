@@ -13,13 +13,11 @@
   </head>
   <body>
     <script>
-      // Redireciona para o caminho correto
       var path = window.location.pathname;
       if (!path.startsWith('/projetojornal')) {
-        window.location.replace('/projetojornal' + path);
+        window.location.href = '/projetojornal' + path;
       } else {
-        // Se já estiver no caminho correto, renderiza a aplicação React
-        window.location.replace('/projetojornal' + path.substring('/projetojornal'.length));
+        window.location.href = '/projetojornal' + path.replace('/projetojornal', '');
       }
     </script>
   </body>
