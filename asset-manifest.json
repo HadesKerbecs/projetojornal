@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/projetojornal/static/css/main.2b86b265.css",
-    "main.js": "/projetojornal/static/js/main.099cc022.js",
+    "main.css": "/projetojornal/static/css/main.8dee0b74.css",
+    "main.js": "/projetojornal/static/js/main.aff108f2.js",
     "static/media/AddFotos.jpg": "/projetojornal/static/media/AddFotos.bd31c060cae7ebe6c180.jpg",
     "static/media/BannerJornal.jpg": "/projetojornal/static/media/BannerJornal.6616290b65e355c59895.jpg",
     "static/media/BannerFotos.jpg": "/projetojornal/static/media/BannerFotos.28aa54f6f8d50ce4a574.jpg",
@@ -113,11 +113,11 @@
     "static/media/Jornal24.jpg": "/projetojornal/static/media/Jornal24.5160db8b780afb038580.jpg",
     "static/media/Jornal5.jpg": "/projetojornal/static/media/Jornal5.5c4bcc20e294b8a1c101.jpg",
     "index.html": "/projetojornal/index.html",
-    "main.2b86b265.css.map": "/projetojornal/static/css/main.2b86b265.css.map",
-    "main.099cc022.js.map": "/projetojornal/static/js/main.099cc022.js.map"
+    "main.8dee0b74.css.map": "/projetojornal/static/css/main.8dee0b74.css.map",
+    "main.aff108f2.js.map": "/projetojornal/static/js/main.aff108f2.js.map"
   },
   "entrypoints": [
-    "static/css/main.2b86b265.css",
-    "static/js/main.099cc022.js"
+    "static/css/main.8dee0b74.css",
+    "static/js/main.aff108f2.js"
   ]
 }
