@@ -12,11 +12,11 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
   const [file, setFile] = useState<File | null>(null);
 
   const ids = [
-    'Gustavo', 'João Vitor', 'Murilo', 'Eduardo',
-    'Luiz Felipe', 'Gabriel', 'Matheus', 'Kelvi',
-    'Luiz Henrique', 'Lucas Chaves', 'Arthur', 'Elias',
-    'Lucas Santos', 'Nathan', 'Jorge Vitor', 'Vinicius',
-  ];
+    'Arthur', 'Eduardo', 'Elias', 'Gabriel', 'Gustavo', 
+    'João Vitor', 'Jorge Vitor', 'Kelvi', 'Lucas Chaves', 
+    'Lucas Santos', 'Luiz Felipe', 'Luiz Henrique', 
+    'Matheus', 'Murilo', 'Nathan', 'Vinicius','Wallison'
+  ];  
 
   const handleFileUpload = async (file: File, selectedId: string) => {
     if (!file || !selectedId) {
@@ -53,7 +53,7 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
         formData
       );
       const photoUrl = response.data.secure_url;
-      alert(`Foto enviada com sucesso! URL: ${photoUrl}`);
+      alert(`Foto enviada com sucesso!`);
       onAddPhoto(normalizedId, photoUrl);
     } catch (error) {
       console.error('Erro ao enviar a foto:', error);
