@@ -16,7 +16,7 @@ const useJornal = () => {
     abril2022: carregarImagens(2, 63),
     novembro2022: carregarImagens(3, 101),
     agosto2024: carregarImagens(4, 103),
-    fevereito2025: carregarImagens(5, 7),
+    fevereiro2025: carregarImagens(5, 7),
   }), []);
 
   return { jornalImagens };

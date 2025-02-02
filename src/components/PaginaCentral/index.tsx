@@ -14,7 +14,7 @@ interface PaginaCentralProps {
   onAddPhoto: (id: string, photo: string) => void;
 }
 
-const PaginaCentral: React.FC<PaginaCentralProps> = ({ onAddPhoto}) => {
+const PaginaCentral: React.FC<PaginaCentralProps> = ({ onAddPhoto }) => {
   const navigate = useNavigate();
 
   const setListaDeNomes = useRecoilValue(cardsNomes);
@@ -25,7 +25,7 @@ const PaginaCentral: React.FC<PaginaCentralProps> = ({ onAddPhoto}) => {
   };
 
   const EntrarJornalId = (id: string, name: string) => {
-    navigate(`/jornal/${id}`, { state:{name}});
+    navigate(`/jornal/${id}`, { state: { name } });
   }
 
   return (
@@ -82,7 +82,7 @@ const PaginaCentral: React.FC<PaginaCentralProps> = ({ onAddPhoto}) => {
           {setListaDeNomes.map((card, index) => (
             <SwiperSlide key={index}>
               <div className={styles.imageCard}
-              onClick={() => EntrarGaleriaId(card.id)}>
+                onClick={() => EntrarGaleriaId(card.id)}>
                 <img src={card.image} alt={card.name} className={styles.cardImage} />
                 <p className={styles.cardName}>{card.name}</p>
               </div>
@@ -93,19 +93,19 @@ const PaginaCentral: React.FC<PaginaCentralProps> = ({ onAddPhoto}) => {
 
       <section className={styles.monthlyJournals}>
         <h2>Jornais Mensais (ou não)</h2>
-        <div className={styles.journalGrid}> 
-        {setListaDeJornais.map((cards, index) => (
-          <div
-          key= {index}
-          className={styles.journalCard}
-          onClick={() => EntrarJornalId(cards.id, cards.name)}
+        <div className={styles.journalGrid}>
+          {setListaDeJornais.map((cards, index) => (
+            <div
+              key={index}
+              className={styles.journalCard}
+              onClick={() => EntrarJornalId(cards.id, cards.name)}
             >
-          {cards.name}
-          </div>
-        ))}        
+              {cards.name}
+            </div>
+          ))}
         </div>
       </section>
-      <Fotos onAddPhoto={onAddPhoto}/>
+      <Fotos onAddPhoto={onAddPhoto} />
     </main>
   );
 };
