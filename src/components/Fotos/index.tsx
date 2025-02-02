@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styles from './Fotos.module.scss';
 import addFotos from '../../assets/addFotos/AddFotos.jpg';
 import axios from 'axios';
+import { useRecoilValue } from 'recoil';
+import { cardsNomes } from '../State/atom';
 
 interface FotosProps {
   onAddPhoto: (id: string, photo: string) => void;
@@ -11,12 +13,9 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
   const [selectedId, setSelectedId] = useState<string>('');
   const [file, setFile] = useState<File | null>(null);
 
-  const ids = [
-    'Arthur', 'Eduardo', 'Elias', 'Gabriel', 'Gustavo', 
-    'João Vitor', 'Jorge Vitor', 'Kelvi', 'Lucas Chaves', 
-    'Lucas Santos', 'Luiz Felipe', 'Luiz Henrique', 
-    'Matheus', 'Murilo', 'Nathan', 'Vinicius','Wallison'
-  ];  
+  const ids = useRecoilValue(cardsNomes)
+  .map((card) => card.name)
+  .sort();  
 
   const handleFileUpload = async (file: File, selectedId: string) => {
     if (!file || !selectedId) {

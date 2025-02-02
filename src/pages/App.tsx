@@ -7,6 +7,7 @@ import Galeria from '../components/Galeria';
 import { RecoilRoot } from 'recoil'
 import { BrowserRouter as Router, Route, Routes, useLocation, BrowserRouter } from 'react-router-dom';
 import NotFound from '../components/Pagina404';
+import useGaleria from '../components/State/Hooks/useGaleria';
 
 export interface GaleriaInterface {
   [key: string]: string[];
@@ -14,21 +15,7 @@ export interface GaleriaInterface {
 
 const AppContent = () => {
   const location = useLocation();
-
-  const [galerias, setGalerias] = useState<GaleriaInterface>({
-    gustavo: [], joaovitor: [], eduardo: [], murilo: [],
-    luizfelipe: [], gabriel: [], matheus: [], wallison: [],
-    kelvi: [], luizhenrique: [], lucas: [], lucas2: [],
-    arthur: [], elias: [], nathan: [], jorgevitor: [],
-    vinicius: [],
-  });
-
-  const handleAddPhoto = (id: string, photo: string) => {
-    setGalerias((prev) => ({
-      ...prev,
-      [id]: [...(prev[id] || []), photo],
-    }));
-  };
+  const { galerias, handleAddPhoto } = useGaleria();
 
   const RotasSemCabecalho = ['/galeria/:galleryId', '/jornal/:jornalId'];
   const RotasComCabecalho = () => {
