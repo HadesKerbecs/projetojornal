@@ -6,7 +6,7 @@ interface JornalImagens {
 
 const carregarImagens = (grupo: number, quantidade: number): string[] => {
   return Array.from({ length: quantidade }, (_, i) => 
-    require(`../assets/JornalDoGrupo${grupo}/Jornal${i + 1}.jpg`)
+    require(`../../../assets/JornalDoGrupo${grupo}/Jornal${i + 1}.jpg`)
   );
 };
 

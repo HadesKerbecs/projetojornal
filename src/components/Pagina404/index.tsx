@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./NotFound.module.scss";
-import planeta from "../assetsaddFotos/Planeta.png"
-import estrelas from "../assets/addFotos/Estrelas.png";
-import luz from "../assets/addFotos/Luz.png";
+import planeta from "../../assets/addFotos/Planeta.png"
+import estrelas from "../../assets/addFotos/Estrelas.png";
+import luz from "../../assets/addFotos/Luz.png";
 
 const NotFound = () => {
     const navigate = useNavigate();
