@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/projetojornal/static/css/main.8dee0b74.css",
-    "main.js": "/projetojornal/static/js/main.aff108f2.js",
+    "main.css": "/projetojornal/static/css/main.7f42a486.css",
+    "main.js": "/projetojornal/static/js/main.9b6f780c.js",
     "static/media/AddFotos.jpg": "/projetojornal/static/media/AddFotos.bd31c060cae7ebe6c180.jpg",
     "static/media/BannerJornal.jpg": "/projetojornal/static/media/BannerJornal.6616290b65e355c59895.jpg",
     "static/media/BannerFotos.jpg": "/projetojornal/static/media/BannerFotos.28aa54f6f8d50ce4a574.jpg",
@@ -25,6 +25,7 @@
     "static/media/Jornal73.jpg": "/projetojornal/static/media/Jornal73.24f7f2a264a27ee54876.jpg",
     "static/media/Jornal96.jpg": "/projetojornal/static/media/Jornal96.ef107865bec394bb2413.jpg",
     "static/media/Jornal33.jpg": "/projetojornal/static/media/Jornal33.0ed4d9c829784e1d60c4.jpg",
+    "static/media/Jornal4.jpg": "/projetojornal/static/media/Jornal4.e71c08a320159c95a304.jpg",
     "static/media/Jornal80.jpg": "/projetojornal/static/media/Jornal80.0256ec15132ceefc5941.jpg",
     "static/media/Jornal68.jpg": "/projetojornal/static/media/Jornal68.69b0a7d6a539c6f39733.jpg",
     "static/media/Jornal83.jpg": "/projetojornal/static/media/Jornal83.cb405d6ecf6dab13af26.jpg",
@@ -72,10 +73,12 @@
     "static/media/Jornal16.jpg": "/projetojornal/static/media/Jornal16.7b395bcf42d12dd137cb.jpg",
     "static/media/Jornal30.jpg": "/projetojornal/static/media/Jornal30.1d279f66134e015e1851.jpg",
     "static/media/Jornal57.jpg": "/projetojornal/static/media/Jornal57.55fb28869eed453f19eb.jpg",
+    "static/media/Luz.png": "/projetojornal/static/media/Luz.783bf420e29152603e69.png",
     "static/media/Jornal36.jpg": "/projetojornal/static/media/Jornal36.b95094b5654271c83187.jpg",
     "static/media/Jornal6.jpg": "/projetojornal/static/media/Jornal6.8c15fcc75ba2a95f5cb4.jpg",
     "static/media/Jornal44.jpg": "/projetojornal/static/media/Jornal44.98204ed3e2c15775df6e.jpg",
     "static/media/Jornal17.jpg": "/projetojornal/static/media/Jornal17.ad6527342e4d6cdbf5ea.jpg",
+    "static/media/Jornal5.jpg": "/projetojornal/static/media/Jornal5.5c4bcc20e294b8a1c101.jpg",
     "static/media/Jornal43.jpg": "/projetojornal/static/media/Jornal43.beae8ba46480368d096d.jpg",
     "static/media/Jornal100.jpg": "/projetojornal/static/media/Jornal100.614071f14a097d29a5ba.jpg",
     "static/media/Jornal15.jpg": "/projetojornal/static/media/Jornal15.db2127dc7a1d08d9ce16.jpg",
@@ -89,7 +92,6 @@
     "static/media/Jornal10.jpg": "/projetojornal/static/media/Jornal10.c41a829a0653131f96b0.jpg",
     "static/media/Jornal47.jpg": "/projetojornal/static/media/Jornal47.f265a30dd5d4cd5c3c38.jpg",
     "static/media/Jornal21.jpg": "/projetojornal/static/media/Jornal21.fa224704ff4805106fb5.jpg",
-    "static/media/Jornal4.jpg": "/projetojornal/static/media/Jornal4.e71c08a320159c95a304.jpg",
     "static/media/Jornal82.jpg": "/projetojornal/static/media/Jornal82.d86a7be163db3a8aa983.jpg",
     "static/media/Jornal67.jpg": "/projetojornal/static/media/Jornal67.b7bd342c093e44cce442.jpg",
     "static/media/Jornal19.jpg": "/projetojornal/static/media/Jornal19.d0b67b330629227238b1.jpg",
@@ -111,13 +113,13 @@
     "static/media/Jornal87.jpg": "/projetojornal/static/media/Jornal87.38e8cbb121fb7a0767b8.jpg",
     "static/media/Jornal38.jpg": "/projetojornal/static/media/Jornal38.02072b3fba769930b286.jpg",
     "static/media/Jornal24.jpg": "/projetojornal/static/media/Jornal24.5160db8b780afb038580.jpg",
-    "static/media/Jornal5.jpg": "/projetojornal/static/media/Jornal5.5c4bcc20e294b8a1c101.jpg",
+    "static/media/Estrelas.png": "/projetojornal/static/media/Estrelas.6b3e5569c42d7a973ffb.png",
     "index.html": "/projetojornal/index.html",
-    "main.8dee0b74.css.map": "/projetojornal/static/css/main.8dee0b74.css.map",
-    "main.aff108f2.js.map": "/projetojornal/static/js/main.aff108f2.js.map"
+    "main.7f42a486.css.map": "/projetojornal/static/css/main.7f42a486.css.map",
+    "main.9b6f780c.js.map": "/projetojornal/static/js/main.9b6f780c.js.map"
   },
   "entrypoints": [
-    "static/css/main.8dee0b74.css",
-    "static/js/main.aff108f2.js"
+    "static/css/main.7f42a486.css",
+    "static/js/main.9b6f780c.js"
   ]
 }
