@@ -11,6 +11,7 @@ const imagensImportadas: string[] = [];
 const imagensImportadas2: string[] = [];
 const imagensImportadas3: string[] = [];
 const imagensImportadas4: string[] = [];
+const imagensImportadas5: string[] = [];
 
 interface JornalImagens {
   [key: string]: string[];
@@ -27,6 +28,9 @@ for (let i = 1; i <= 101; i++) {
 }
 for (let i = 1; i <= 103; i++) {
   imagensImportadas4.push(require(`../../assets/JornalDoGrupo4/Jornal${i}.jpg`));
+}
+for (let i = 1; i <= 7; i++) {
+  imagensImportadas5.push(require(`../../assets/JornalDoGrupo5/Jornal${i},jpg`))
 }
 
 const Jornal = () => {

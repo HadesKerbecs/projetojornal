@@ -1,0 +1,61 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(#151557, #212187, #000013);
+    position: relative;
+    color: white;
+    text-align: center;
+  }
+  
+  .estrelas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .luz {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .numeros404 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    font-weight: bold;
+    text-shadow: 0px 0px 20px #BF7BFB;
+  }
+  
+  .planeta {
+    width: 100px;
+    margin: 0 20px;
+    filter: drop-shadow(0px 0px 15px #BF7BFB);
+  }
+  
+  .botoes {
+    margin-top: 20px;
+  }
+  
+  button {
+    background: #212187;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background: #151557;
+  }
+  
