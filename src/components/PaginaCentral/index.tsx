@@ -94,7 +94,10 @@ const PaginaCentral: React.FC<PaginaCentralProps> = ({ onAddPhoto }) => {
       <section className={styles.monthlyJournals}>
         <h2>Jornais Mensais (ou não)</h2>
         <div className={styles.journalGrid}>
-          {setListaDeJornais.map((cards, index) => (
+          
+          {setListaDeJornais.map((cards, index) => {
+            console.log(cards)
+            return(
             <div
               key={index}
               className={styles.journalCard}
@@ -102,7 +105,8 @@ const PaginaCentral: React.FC<PaginaCentralProps> = ({ onAddPhoto }) => {
             >
               {cards.name}
             </div>
-          ))}
+            );
+})}
         </div>
       </section>
       <Fotos onAddPhoto={onAddPhoto} />
