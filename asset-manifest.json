@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/projetojornal/static/css/main.7f42a486.css",
-    "main.js": "/projetojornal/static/js/main.9b6f780c.js",
+    "main.js": "/projetojornal/static/js/main.ba565419.js",
     "static/media/AddFotos.jpg": "/projetojornal/static/media/AddFotos.bd31c060cae7ebe6c180.jpg",
     "static/media/BannerJornal.jpg": "/projetojornal/static/media/BannerJornal.6616290b65e355c59895.jpg",
     "static/media/BannerFotos.jpg": "/projetojornal/static/media/BannerFotos.28aa54f6f8d50ce4a574.jpg",
@@ -45,6 +45,7 @@
     "static/media/Jornal85.jpg": "/projetojornal/static/media/Jornal85.34eff2a0d8a26469c32b.jpg",
     "static/media/Jornal32.jpg": "/projetojornal/static/media/Jornal32.0d38a8e9d56a15630c0c.jpg",
     "static/media/Jornal62.jpg": "/projetojornal/static/media/Jornal62.f9f090e17b71d6331a82.jpg",
+    "static/media/Jornal10.jpg": "/projetojornal/static/media/Jornal10.c41a829a0653131f96b0.jpg",
     "static/media/Jornal35.jpg": "/projetojornal/static/media/Jornal35.7cc79c24a15a4ba5dace.jpg",
     "static/media/Jornal94.jpg": "/projetojornal/static/media/Jornal94.4b6fe1c6ef7c38d6adeb.jpg",
     "static/media/Jornal76.jpg": "/projetojornal/static/media/Jornal76.2edd57f0ce6246a8f55f.jpg",
@@ -53,6 +54,7 @@
     "static/media/Jornal13.jpg": "/projetojornal/static/media/Jornal13.5dfe757daea61f40515d.jpg",
     "static/media/Jornal42.jpg": "/projetojornal/static/media/Jornal42.a39f655b1d2ca8616002.jpg",
     "static/media/Jornal90.jpg": "/projetojornal/static/media/Jornal90.72c5e3546dff79211c4a.jpg",
+    "static/media/Jornal9.jpg": "/projetojornal/static/media/Jornal9.fa6aea5d6bccf3fcd5ca.jpg",
     "static/media/Jornal55.jpg": "/projetojornal/static/media/Jornal55.660ddcd258dfcd09ff3a.jpg",
     "static/media/Jornal70.jpg": "/projetojornal/static/media/Jornal70.0fcb26e63978f43587cb.jpg",
     "static/media/Jornal64.jpg": "/projetojornal/static/media/Jornal64.32a66e725f63b8bab7cd.jpg",
@@ -62,7 +64,6 @@
     "static/media/Jornal45.jpg": "/projetojornal/static/media/Jornal45.d423e933a370fcfcf5ed.jpg",
     "static/media/Jornal20.jpg": "/projetojornal/static/media/Jornal20.731644fb9b296ba0b2bc.jpg",
     "static/media/Jornal58.jpg": "/projetojornal/static/media/Jornal58.257a4672cdf6746ec6e0.jpg",
-    "static/media/Jornal9.jpg": "/projetojornal/static/media/Jornal9.fa6aea5d6bccf3fcd5ca.jpg",
     "static/media/Jornal95.jpg": "/projetojornal/static/media/Jornal95.3435bf87c3fb8a9311eb.jpg",
     "static/media/Jornal93.jpg": "/projetojornal/static/media/Jornal93.88d1bf6e1b5862983173.jpg",
     "static/media/Jornal74.jpg": "/projetojornal/static/media/Jornal74.1ef951a9fb085c49b385.jpg",
@@ -75,8 +76,10 @@
     "static/media/Jornal57.jpg": "/projetojornal/static/media/Jornal57.55fb28869eed453f19eb.jpg",
     "static/media/Luz.png": "/projetojornal/static/media/Luz.783bf420e29152603e69.png",
     "static/media/Jornal36.jpg": "/projetojornal/static/media/Jornal36.b95094b5654271c83187.jpg",
+    "static/media/Jornal12.jpg": "/projetojornal/static/media/Jornal12.d64c5200ca16a7dce39f.jpg",
     "static/media/Jornal6.jpg": "/projetojornal/static/media/Jornal6.8c15fcc75ba2a95f5cb4.jpg",
     "static/media/Jornal44.jpg": "/projetojornal/static/media/Jornal44.98204ed3e2c15775df6e.jpg",
+    "static/media/Jornal8.jpg": "/projetojornal/static/media/Jornal8.eab38703c03817932f44.jpg",
     "static/media/Jornal17.jpg": "/projetojornal/static/media/Jornal17.ad6527342e4d6cdbf5ea.jpg",
     "static/media/Jornal5.jpg": "/projetojornal/static/media/Jornal5.5c4bcc20e294b8a1c101.jpg",
     "static/media/Jornal43.jpg": "/projetojornal/static/media/Jornal43.beae8ba46480368d096d.jpg",
@@ -87,9 +90,7 @@
     "static/media/Jornal77.jpg": "/projetojornal/static/media/Jornal77.abdf0e47158882fc0b8a.jpg",
     "static/media/Jornal51.jpg": "/projetojornal/static/media/Jornal51.a9ad9a7e8c822459408f.jpg",
     "static/media/Jornal65.jpg": "/projetojornal/static/media/Jornal65.75ee8dffbb16c092b24d.jpg",
-    "static/media/Jornal12.jpg": "/projetojornal/static/media/Jornal12.d64c5200ca16a7dce39f.jpg",
     "static/media/Jornal2.jpg": "/projetojornal/static/media/Jornal2.81b0559369b59420f4ee.jpg",
-    "static/media/Jornal10.jpg": "/projetojornal/static/media/Jornal10.c41a829a0653131f96b0.jpg",
     "static/media/Jornal47.jpg": "/projetojornal/static/media/Jornal47.f265a30dd5d4cd5c3c38.jpg",
     "static/media/Jornal21.jpg": "/projetojornal/static/media/Jornal21.fa224704ff4805106fb5.jpg",
     "static/media/Jornal82.jpg": "/projetojornal/static/media/Jornal82.d86a7be163db3a8aa983.jpg",
@@ -100,7 +101,6 @@
     "static/media/Jornal18.jpg": "/projetojornal/static/media/Jornal18.197f0a4d76ba398aec7e.jpg",
     "static/media/Jornal79.jpg": "/projetojornal/static/media/Jornal79.24e8a2336c472634a2ea.jpg",
     "static/media/Jornal56.jpg": "/projetojornal/static/media/Jornal56.47b2ed70935c321b9f07.jpg",
-    "static/media/Jornal8.jpg": "/projetojornal/static/media/Jornal8.eab38703c03817932f44.jpg",
     "static/media/Jornal52.jpg": "/projetojornal/static/media/Jornal52.5b27bf367237c0ab46a3.jpg",
     "static/media/Jornal31.jpg": "/projetojornal/static/media/Jornal31.6d9ba26e17ccdad794e3.jpg",
     "static/media/Jornal69.jpg": "/projetojornal/static/media/Jornal69.c77db5dc4baf10396485.jpg",
@@ -116,10 +116,10 @@
     "static/media/Estrelas.png": "/projetojornal/static/media/Estrelas.6b3e5569c42d7a973ffb.png",
     "index.html": "/projetojornal/index.html",
     "main.7f42a486.css.map": "/projetojornal/static/css/main.7f42a486.css.map",
-    "main.9b6f780c.js.map": "/projetojornal/static/js/main.9b6f780c.js.map"
+    "main.ba565419.js.map": "/projetojornal/static/js/main.ba565419.js.map"
   },
   "entrypoints": [
     "static/css/main.7f42a486.css",
-    "static/js/main.9b6f780c.js"
+    "static/js/main.ba565419.js"
   ]
 }
