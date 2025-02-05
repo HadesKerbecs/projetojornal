@@ -90,23 +90,22 @@ const PaginaCentral: React.FC<PaginaCentralProps> = ({ onAddPhoto }) => {
           ))}
         </Swiper>
       </section>
-
       <section className={styles.monthlyJournals}>
         <h2>Jornais Mensais (ou não)</h2>
         <div className={styles.journalGrid}>
-          
+
           {setListaDeJornais.map((cards, index) => {
             console.log(cards)
-            return(
-            <div
-              key={index}
-              className={styles.journalCard}
-              onClick={() => EntrarJornalId(cards.id, cards.name)}
-            >
-              {cards.name}
-            </div>
+            return (
+              <div
+                key={index}
+                className={styles.journalCard}
+                onClick={() => EntrarJornalId(cards.id, cards.name)}
+              >
+                {cards.name}
+              </div>
             );
-})}
+          })}
         </div>
       </section>
       <Fotos onAddPhoto={onAddPhoto} />
