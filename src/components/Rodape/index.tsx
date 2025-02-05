@@ -16,7 +16,7 @@ const Rodape= () => {
         <p>Não lhe garanto quando lança essas merdas</p>
         <p>Eduardo | Luiz Felipe | Gustavo | Murilo | Gabriel | Matheus</p>
         <p>João Vitor | Wallison | Kelvi | Luiz Henrique | Vinicius</p>
-        <p>Lucas |Lucas2 | Nathan | Jorge Vitor | Arthur</p>
+        <p>Lucas | Lucas2 | Nathan | Jorge Vitor | Arthur</p>
       </div>
     </footer>
   );
