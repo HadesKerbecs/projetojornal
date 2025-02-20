@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './Galeria.module.scss';
-import Cabecalho2 from '../../components/Cabecalho/CabecalhoFJ';
 import axios from 'axios';
 import { GaleriaInterface } from '../../pages/App';
 
@@ -47,7 +46,6 @@ const Galeria: React.FC<GaleriaProps> = ({ galerias }) => {
 
   return (
     <div>
-      <Cabecalho2 />
       <div className={styles.galleryContainer}>
         {images.length > 0 ? (
           <>

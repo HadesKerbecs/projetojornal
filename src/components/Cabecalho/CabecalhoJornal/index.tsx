@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './CabecalhoFJ2.module.scss';
+import styles from './CabecalhoJornal.module.scss';
 import { useNavigate, Location, useLocation} from 'react-router-dom';
 import LogoTJF from '../../../assets/logoTJF/LogoTJF.png';
 
 interface LocationState {
     name: string;
   }
-const CabecalhoFJ2 = () => {
+const CabecalhoJornal = () => {
     const navigate = useNavigate();
 
     const voltarPagina = () => {
@@ -37,5 +37,5 @@ const CabecalhoFJ2 = () => {
     );
   };
   
-export default CabecalhoFJ2;
+export default CabecalhoJornal;
 

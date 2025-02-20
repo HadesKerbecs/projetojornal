@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
-import Cabecalho from '../components/Cabecalho';
+import React from 'react';
+import CabecalhoGaleria from '../components/Cabecalho/CabecalhoGaleria';
+import CabecalhoJornal from '../components/Cabecalho/CabecalhoJornal';
+import CabecalhoPaginaCentral from '../components/Cabecalho';
 import PaginaCentral from '../components/PaginaCentral';
 import Rodape from '../components/Rodape';
 import Jornal from '../components/Jornal';
 import Galeria from '../components/Galeria';
-import { RecoilRoot } from 'recoil'
-import { BrowserRouter as Router, Route, Routes, useLocation, BrowserRouter } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import NotFound from '../components/Pagina404';
 import useGaleria from '../components/State/Hooks/useGaleria';
 
@@ -17,17 +19,23 @@ const AppContent = () => {
   const location = useLocation();
   const { galerias, handleAddPhoto } = useGaleria();
 
-  const RotasSemCabecalho = ['/galeria/:galleryId', '/jornal/:jornalId'];
-  const RotasComCabecalho = () => {
-    return !RotasSemCabecalho.some((rota) => {
-      const rotaRegex = new RegExp(`^${rota.replace(/:\w+/g, '\\w+')}$`);
-      return rotaRegex.test(location.pathname);
-    });
+  const renderCabecalho = () => {
+    if (location.pathname.includes('/galeria')) {
+      return <CabecalhoGaleria />;
+    }
+    if (location.pathname.includes('/jornal')) {
+      return <CabecalhoJornal />;
+    }
+    if (location.pathname === '/') {
+      return <CabecalhoPaginaCentral />;
+    }
+    return null;
   };
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      {RotasComCabecalho() && <Cabecalho />}
+      <header>{renderCabecalho()}</header>
+
       <main style={{ flex: 1, marginBottom: 'auto' }}>
         <Routes>
           <Route path="/" element={<PaginaCentral onAddPhoto={handleAddPhoto} />} />
@@ -36,6 +44,7 @@ const AppContent = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
+
       <footer>
         <Rodape />
       </footer>
@@ -46,9 +55,9 @@ const AppContent = () => {
 const App = () => {
   return (
     <RecoilRoot>
-      <BrowserRouter basename='/projetojornal'>
+      <Router basename='/projetojornal'>
         <AppContent />
-      </BrowserRouter>
+      </Router>
     </RecoilRoot>
   );
 };

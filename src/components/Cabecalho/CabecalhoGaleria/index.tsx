@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './CabecalhoFJ.module.scss';
+import styles from './CabecalhoGaleria.module.scss';
 import { useNavigate } from 'react-router-dom';
 import LogoTJF from '../../../assets/logoTJF/LogoTJF.png';
 
-const CabecalhoFJ = () => {
+const CabecalhoGaleria = () => {
     const navigate = useNavigate();
 
     const voltarPagina = () => {
@@ -30,5 +30,5 @@ const CabecalhoFJ = () => {
     );
   };
   
-export default CabecalhoFJ;
+export default CabecalhoGaleria;
 

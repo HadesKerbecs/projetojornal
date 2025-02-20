@@ -5,7 +5,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import styles from './Jornal.module.scss';
-import Cabecalho3 from '../../components/Cabecalho/CabecalhoFJ2';
 import useJornal from '../State/Hooks/useJornal';
 
 const Jornal = () => {
@@ -16,7 +15,6 @@ const Jornal = () => {
 
   return (
     <div>
-      <Cabecalho3 />
       <div className={styles.journalPage}>
         {images.length > 0 ? (
           <Swiper
