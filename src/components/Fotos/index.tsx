@@ -54,9 +54,11 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
       const photoUrl = response.data.secure_url;
       alert(`Foto enviada com sucesso!`);
       onAddPhoto(normalizedId, photoUrl);
+      setSelectedId('');
+      setFile(null);
     } catch (error) {
       console.error('Erro ao enviar a foto:', error);
-      alert('Erro ao enviar a foto.');
+      alert('Erro ao enviar a foto. Envie uma foto!');
     }
   };
   
@@ -91,7 +93,7 @@ const Fotos: React.FC<FotosProps> = ({ onAddPhoto }) => {
             if (selectedFile) {
               setFile(selectedFile);
               if (selectedId) {
-                handleFileUpload(selectedFile, selectedId); // Passa os dados diretamente
+                handleFileUpload(selectedFile, selectedId); 
               } else {
                 alert('Selecione um ID antes de fazer o upload.');
               }
