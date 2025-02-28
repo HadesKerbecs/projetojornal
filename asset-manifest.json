@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/projetojornal/static/css/main.a16c1cf8.css",
-    "main.js": "/projetojornal/static/js/main.c36974a1.js",
+    "main.js": "/projetojornal/static/js/main.c4b9ab4b.js",
     "static/media/AddFotos.jpg": "/projetojornal/static/media/AddFotos.bd31c060cae7ebe6c180.jpg",
     "static/media/BannerJornal.jpg": "/projetojornal/static/media/BannerJornal.6616290b65e355c59895.jpg",
     "static/media/BannerFotos.jpg": "/projetojornal/static/media/BannerFotos.28aa54f6f8d50ce4a574.jpg",
@@ -49,6 +49,7 @@
     "static/media/Jornal26.jpg": "/projetojornal/static/media/Jornal26.53412acd7b1cf1eca744.jpg",
     "static/media/Jornal27.jpg": "/projetojornal/static/media/Jornal27.7519947f42a0f1bc0ac2.jpg",
     "static/media/Jornal103.jpg": "/projetojornal/static/media/Jornal103.c44196ac9d1372cc127e.jpg",
+    "static/media/Jornal129.jpg": "/projetojornal/static/media/Jornal129.475fcc65ea43d1d7b656.jpg",
     "static/media/Jornal81.jpg": "/projetojornal/static/media/Jornal81.d9b5c8a6c477bf32e896.jpg",
     "static/media/Jornal14.jpg": "/projetojornal/static/media/Jornal14.92effde67358cecdbd4d.jpg",
     "static/media/Jornal40.jpg": "/projetojornal/static/media/Jornal40.69cb2732dab167ab1c0b.jpg",
@@ -106,6 +107,7 @@
     "static/media/Jornal108.jpg": "/projetojornal/static/media/Jornal108.69d41d592cc3371393d2.jpg",
     "static/media/Jornal109.jpg": "/projetojornal/static/media/Jornal109.fe952a6b143830169b03.jpg",
     "static/media/Jornal44.jpg": "/projetojornal/static/media/Jornal44.98204ed3e2c15775df6e.jpg",
+    "static/media/Jornal128.jpg": "/projetojornal/static/media/Jornal128.6681f357ef072480e1be.jpg",
     "static/media/Jornal110.jpg": "/projetojornal/static/media/Jornal110.129aadde2e6fa75f406c.jpg",
     "static/media/Jornal8.jpg": "/projetojornal/static/media/Jornal8.eab38703c03817932f44.jpg",
     "static/media/Jornal82.jpg": "/projetojornal/static/media/Jornal82.d86a7be163db3a8aa983.jpg",
@@ -140,10 +142,10 @@
     "static/media/Estrelas.png": "/projetojornal/static/media/Estrelas.6b3e5569c42d7a973ffb.png",
     "index.html": "/projetojornal/index.html",
     "main.a16c1cf8.css.map": "/projetojornal/static/css/main.a16c1cf8.css.map",
-    "main.c36974a1.js.map": "/projetojornal/static/js/main.c36974a1.js.map"
+    "main.c4b9ab4b.js.map": "/projetojornal/static/js/main.c4b9ab4b.js.map"
   },
   "entrypoints": [
     "static/css/main.a16c1cf8.css",
-    "static/js/main.c36974a1.js"
+    "static/js/main.c4b9ab4b.js"
   ]
 }
