@@ -47,6 +47,7 @@ export const cardsJornais = atom({
         { name: "Abril 2022", id: "abril2022" },
         { name: "Novembro 2022", id: "novembro2022" },
         { name: "Agosto 2024", id: "agosto2024" },
-        { name: "Fevereiro 2025", id: "fevereiro2025" }
+        { name: "Fevereiro 2025", id: "fevereiro2025" },
+        { name: "Março 2025", id: "marco2025"}
     ]
 });
