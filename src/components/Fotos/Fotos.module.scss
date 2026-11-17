@@ -1,106 +1,178 @@
+
 .selecaoFoto {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: #f9f9f9;
+  padding: 55px 7%;
+  background: linear-gradient(120deg, #08172d, #102b49);
+  color: #fff;
   position: relative;
   overflow: hidden;
-  height: 150px;
-  flex-wrap: nowrap;
 
-  .textContainer {
-    flex: 1;
-    position: relative;
-    padding-right: 20px;
-    max-width: 41%;
-    word-wrap: break-word;
-    z-index: 1;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border: 1px solid #ffffff12;
+    border-radius: 50%;
+    right: -100px;
+    top: -180px;
+    box-shadow:
+      0 0 0 35px #ffffff06,
+      0 0 0 70px #ffffff04;
+  }
+}
 
-    h2 {
-      font-size: 1.4rem;
-      font-weight: bold;
-      margin-bottom: 10px;
+.uploadHeader {
+  position: relative;
+  z-index: 1;
+  max-width: 650px;
+  margin-bottom: 35px;
 
-      @media (max-width: 768px) {
-        font-size: 1.2rem;
-      }
-      @media (max-width: 480px) {
-        font-size: 1rem;
-      }
-    }
-
-    p {
-      font-size: 0.9rem;
-      color: #555;
-
-      @media (max-width: 768px) {
-        font-size: 0.8rem;
-      }
-      @media (max-width: 480px) {
-        font-size: 0.7rem;
-      }
-    }
-
-    .selectId {
-      flex: 0 0 auto;
-      padding: 6px;
-      font-size: 12px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: #f9f9f9;
-      color: #333;
-  
-      @media (max-width: 768px) {
-        font-size: 0.8rem;
-        padding: 6px;
-      }
-      @media (max-width: 480px) {
-        font-size: 0.6rem;
-        padding: 5px;
-      }
-    }
-
-    .authButton {
-      flex: 0 0 auto;
-      padding: 6px;
-      font-size: 12px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: #f9f9f9;
-      color: #333;
-  
-      @media (max-width: 768px) {
-        font-size: 0.8rem;
-        padding: 6px;
-      }
-      @media (max-width: 480px) {
-        font-size: 0.6rem;
-        padding: 5px;
-      }
-    }
+  h2 {
+    font-size: clamp(25px, 3vw, 34px);
+    font-weight: 800;
+    margin: 12px 0;
+    color: #fff;
   }
 
-  .fotoPlaceholder {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 75%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 0;
+  p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #b9cde0;
+    max-width: 520px;
+  }
+}
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 10% 09%;
-      clip-path: polygon(100% 0, 100% 100%, 16% 100%, 37% 0);
+.uploadIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #1769aa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 
-    }
+  span {
+    font-size: 27px;
+    font-weight: 700;
+  }
+}
 
-    label {
-      cursor: pointer;
-    }
+.uploadEyebrow {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #46c4e8;
+}
+
+.uploadContent {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 230px;
+
+  label:not(.uploadButton) {
+    font-size: 12px;
+    font-weight: 700;
+    color: #d9e9f5;
+  }
+}
+
+.selectId {
+  height: 46px;
+  padding: 0 14px;
+  border: 1px solid #ffffff30;
+  border-radius: 8px;
+  background: #ffffff12;
+  color: #fff;
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+
+  option {
+    background: #102b49;
+    color: #fff;
+  }
+
+  &:focus {
+    border-color: #46c4e8;
+  }
+}
+
+.fileInput {
+  display: none;
+}
+
+.uploadButton {
+  height: 46px;
+  padding: 0 20px;
+  border-radius: 8px;
+  background: #f15b4a;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: .2s ease;
+
+  span {
+    font-size: 20px;
+  }
+
+  &:hover {
+    background: #d94738;
+    transform: translateY(-2px);
+  }
+}
+
+.fileName {
+  color: #b9cde0;
+  font-size: 11px;
+  max-width: 230px;
+  overflow-wrap: anywhere;
+}
+
+.uploadFooter {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  border-top: 1px solid #ffffff20;
+  margin-top: 35px;
+  padding-top: 20px;
+  color: #91a9c0;
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 600px) {
+  .selecaoFoto {
+    padding: 40px 20px;
+  }
+
+  .uploadContent {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .formGroup {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .uploadFooter {
+    flex-direction: column;
   }
 }

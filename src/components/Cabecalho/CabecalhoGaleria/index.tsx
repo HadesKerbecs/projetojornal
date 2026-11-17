@@ -1,34 +1,49 @@
+
 import React from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import styles from './CabecalhoGaleria.module.scss';
-import { useNavigate } from 'react-router-dom';
 import LogoTJF from '../../../assets/logoTJF/LogoTJF.png';
+import { useRecoilValue } from 'recoil';
+import { cardsNomes } from '../../State/atom';
 
 const CabecalhoGaleria = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const { galleryId } = useParams<{ galleryId: string }>();
 
-    const voltarPagina = () => {
-        navigate(-1);
-    }
-    return (
-        <div className={styles.fotoVisualizarContainer}>
-        <header className={styles.header}>
-            <img 
-                src={LogoTJF}
-                alt="Logo da empresa" 
-            />
-            <div className='text-container'>
-                <h1>FOTOS</h1>
-                <p>Aqui temos as fotos do pessoal da Tropa do Juízo Final</p>
-            </div>
-            <button 
-            className={styles.voltarButton}
-            onClick={voltarPagina}
-            >VOLTAR
-            </button>
-            </header>
+  const integrantes = useRecoilValue(cardsNomes);
+  const integrante = integrantes.find((card) => card.id === galleryId);
+
+  return (
+    <header className={styles.header}>
+      <div className={styles.container}>
+        <div className={styles.brand}>
+          <img
+            className={styles.logo}
+            src={LogoTJF}
+            alt="Tropa do Juízo Final"
+          />
+
+          <div className={styles.brandInfo}>
+            <span>ARQUIVO FOTOGRÁFICO</span>
+            <h1>Galeria de Fotos</h1>
+            <p>
+              {integrante
+                ? `Registros de ${integrante.name}`
+                : 'Tropa do Juízo Final'}
+            </p>
+          </div>
         </div>
-    );
-  };
-  
-export default CabecalhoGaleria;
 
+        <button
+          type="button"
+          className={styles.backButton}
+          onClick={() => navigate(-1)}
+        >
+          <span>←</span> VOLTAR
+        </button>
+      </div>
+    </header>
+  );
+};
+
+export default CabecalhoGaleria;

@@ -1,41 +1,46 @@
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './CabecalhoJornal.module.scss';
-import { useNavigate, Location, useLocation} from 'react-router-dom';
 import LogoTJF from '../../../assets/logoTJF/LogoTJF.png';
 
 interface LocationState {
-    name: string;
-  }
+  name?: string;
+}
+
 const CabecalhoJornal = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-    const voltarPagina = () => {
-        navigate(-1);
-    }
-    const location = useLocation() as Location<LocationState>;
-    const journalName = location.state?.name || 'Jornal Desconhecido';
+  const state = location.state as LocationState | null;
+  const nomeJornal = state?.name || 'Edição do Jornal';
 
-    return (
-        <div className={styles.fotoVisualizarContainer}>
-        <header className={styles.header}>
-            <img 
-                src={LogoTJF}
-                alt="Logo da empresa" 
-            />
-            <div className='text-container'>
-                <h1>Jornal</h1>
-                <p>Aqui temos o jornal de {journalName} da Tropa do Juízo Final</p>
-            </div>
-            <button 
-                    className={styles.voltarButton} 
-                    onClick={voltarPagina}
-            >
-                    VOLTAR
-            </button>
-            </header>
+  return (
+    <header className={styles.header}>
+      <div className={styles.container}>
+        <div className={styles.brand}>
+          <img
+            className={styles.logo}
+            src={LogoTJF}
+            alt="Tropa do Juízo Final"
+          />
+
+          <div className={styles.brandInfo}>
+            <span>ARQUIVO HISTÓRICO</span>
+            <h1>{nomeJornal}</h1>
+            <p>Arquivo oficial das edições da Tropa do Juízo Final</p>
+          </div>
         </div>
-    );
-  };
-  
-export default CabecalhoJornal;
 
+        <button
+          type="button"
+          className={styles.backButton}
+          onClick={() => navigate(-1)}
+        >
+          <span>←</span> VOLTAR
+        </button>
+      </div>
+    </header>
+  );
+};
+
+export default CabecalhoJornal;

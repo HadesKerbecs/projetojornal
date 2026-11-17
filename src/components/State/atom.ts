@@ -15,7 +15,11 @@ import capaNathan from '../../assets/CapaMembros/imgNathan/Capa.jpg';
 import capaGabriel from '../../assets/CapaMembros/imgGabriel/Capa.jpg';
 import capaLucas from '../../assets/CapaMembros/imgLucas/Capa.jpg';
 import capaJoaoVitor from '../../assets/CapaMembros/imgJoaoVitor/Capa.jpg';
-import capaVinicius from '../../assets/CapaMembros/imgVinicius/Capa.jpg';
+import capaBastiao from '../../assets/CapaMembros/imgBastiao/Capa.jpg';
+import capaWomas from '../../assets/CapaMembros/imgWomas/Capa.jpg';
+import capaMarcos from '../../assets/CapaMembros/imgMarcos/Capa.jpg';
+import capaAllisson from '../../assets/CapaMembros/imgAllisson/Capa.jpg';
+import capaYasmin from '../../assets/CapaMembros/imgYasmin/Capa.jpg';
 
 export const cardsNomes = atom({
     key: 'cardsNomes',
@@ -25,18 +29,22 @@ export const cardsNomes = atom({
         { name: "Murilo", image: capaImgMurilo, id: "murilo" },
         { name: "João Vitor", image: capaJoaoVitor, id: "joaovitor" },
         { name: "Luiz Felipe", image: capaLuizFelipe, id: "luizfelipe" },
-        { name: "Gabriel", image: capaGabriel, id: "gabriel" },
-        { name: "Matheus", image: capaImgMatheus, id: "matheus" },
         { name: "Wallison", image: capaWallison, id: "wallison" },
-        { name: "Kelvi", image: capaKelvi, id: "kelvi" },
+        { name: "Arthur", image: capaArthur, id: "arthur" },
+        { name: "Nathan", image: capaNathan, id: "nathan" },
         { name: "Luiz Henrique", image: capaImgLuizHenrique, id: "luizhenrique" },
         { name: "Lucas Chaves", image: capaLucas, id: "lucaschaves" },
-        { name: "Arthur", image: capaArthur, id: "arthur" },
+        { name: "Gabriel", image: capaGabriel, id: "gabriel" },
+        { name: "Matheus", image: capaImgMatheus, id: "matheus" },
         { name: "Elias", image: capaImgElias, id: "elias" },
         { name: "Lucas Santos", image: capaLucas2, id: "lucassantos" },
-        { name: "Nathan", image: capaNathan, id: "nathan" },
+        { name: "Bastiao", image: capaBastiao, id: "bastiao"},
+        { name: "Kelvi", image: capaKelvi, id: "kelvi" },
+        { name: "Marcos Paulo", image: capaMarcos, id: "marcos"},
         { name: "Jorge Vitor", image: capaImgJorgeVitor, id: "jorgevitor" },
-        { name: "Vinicius", image: capaVinicius, id: "vinicius" }
+        { name: "Womas", image: capaWomas, id: "womas"},
+        { name: "Allisson", image: capaAllisson, id: "allisson"},
+        { name: "Yasmin", image: capaYasmin, id: "yasmin"},
     ]
 });
 
@@ -48,6 +56,7 @@ export const cardsJornais = atom({
         { name: "Novembro 2022", id: "novembro2022" },
         { name: "Agosto 2024", id: "agosto2024" },
         { name: "Fevereiro 2025", id: "fevereiro2025" },
-        { name: "Março 2025", id: "marco2025"}
+        { name: "Março 2025", id: "marco2025"},
+        // { name: "Novembro 2026", id: "novembro2026"}
     ]
 });
