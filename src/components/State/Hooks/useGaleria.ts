@@ -11,7 +11,7 @@ export const galeriaState = atom<GaleriaInterface>({
     luizfelipe: [], gabriel: [], matheus: [], wallison: [],
     kelvi: [], luizhenrique: [], lucas: [], lucas2: [],
     arthur: [], elias: [], nathan: [], jorgevitor: [],
-    marcos: [], womas: [], allisson: [], yasmin: []
+    marcospaulo: [], womas: [], allisson: [], yasmin: []
   },
 });
 

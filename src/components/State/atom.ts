@@ -40,7 +40,7 @@ export const cardsNomes = atom({
         { name: "Lucas Santos", image: capaLucas2, id: "lucassantos" },
         { name: "Bastiao", image: capaBastiao, id: "bastiao"},
         { name: "Kelvi", image: capaKelvi, id: "kelvi" },
-        { name: "Marcos Paulo", image: capaMarcos, id: "marcos"},
+        { name: "Marcos Paulo", image: capaMarcos, id: "marcospaulo"},
         { name: "Jorge Vitor", image: capaImgJorgeVitor, id: "jorgevitor" },
         { name: "Womas", image: capaWomas, id: "womas"},
         { name: "Allisson", image: capaAllisson, id: "allisson"},
